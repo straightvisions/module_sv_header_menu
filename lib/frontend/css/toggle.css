@@ -1,0 +1,23 @@
+/* Menu Toggle */
+.sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle {
+	margin-left: auto;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	margin: 0;
+	cursor: pointer;
+	color: transparent;
+	background-color: transparent;
+	padding: 0;
+}
+
+.sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle::before {
+	content: '';
+	display: block;
+	height: 100%;
+	width: 100%;
+	-webkit-mask-size: 100%;
+	-webkit-mask-position: center;
+	-webkit-mask-repeat: no-repeat;
+	transition: -webkit-mask-image .5s ease-in-out;
+}
