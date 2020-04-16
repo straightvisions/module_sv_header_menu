@@ -1,7 +1,3 @@
-.sv100_sv_navigation_sv_header_menu_primary .menu > li > a {
-	display: block;
-}
-
 .sv100_sv_navigation_sv_header_menu_primary .menu > li > a > .item-title {
 	position: relative;
 }
@@ -12,6 +8,7 @@
 	top: calc(100% + 5px);
 	display: block;
 	height: 2px;
+	width:0;
 	transition: width .25s ease-in-out;
 }
 
@@ -30,10 +27,6 @@
 }
 
 @media ( min-width: 1350px ) {
-	.sv100_sv_navigation_sv_header_menu_primary .menu > li > a > .item-title {
-		padding: 0;
-	}
-
 	.sv100_sv_navigation_sv_header_menu_primary ul li.dropdown:hover > a > .item-title::after,
 	.sv100_sv_navigation_sv_header_menu_primary ul li.dropdown:focus > a > .item-title::after{
 		transform: rotate( 0 );

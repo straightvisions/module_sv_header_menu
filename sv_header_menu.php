@@ -49,9 +49,9 @@
 			// Background
 			$this->get_setting( 'bg_color' )
 				->set_title( __( 'Background Color', 'sv100' ) )
-				->set_default_value( '#ffffff' )
+				->set_default_value( '255,255,255,0' )
 				->load_type( 'color' );
-
+/* @todo: create a combined background setting type like margin or border
 			$this->get_setting( 'bg_image' )
 				->set_title( __( 'Background Image', 'sv100' ) )
 				->load_type( 'upload' );
@@ -114,12 +114,11 @@
 					'inherit' 	=> __( 'inherit', 'sv100' )
 				) )
 				->load_type( 'select' );
-
+*/
 			// Border
 			$this->get_setting( 'border' )
 				->set_title( __( 'Border', 'sv100' ) )
 				->set_description( __( 'Border', 'sv100' ) )
-				->set_is_responsive(true)
 				->load_type( 'border' );
 
 			return $this;
@@ -169,18 +168,23 @@
 		protected function load_settings_items(): sv_header_menu {
 			$i = 1;
 			while ($i <= 3) {
-				// Item - Border
-				$this->get_setting( 'level_'.$i.'_border' )
-					->set_title( __( 'Border', 'sv100' ) )
-					->set_description( __( 'Border', 'sv100' ) )
-					->load_type( 'border' );
-
 				// Item - Spacing
 				$this->get_setting('level_'.$i.'_margin')
 					->set_title(__('Margin', 'sv100'))
+					->set_is_responsive(true)
 					->load_type('margin');
+
 				$this->get_setting('level_'.$i.'_padding')
 					->set_title(__('Padding', 'sv100'))
+					->set_is_responsive(true)
+					->set_default_value(array(
+						'mobile'		=> array(
+							'top'		=> '10px',
+							'right'		=> '10px',
+							'bottom'	=> '10px',
+							'left'		=> '10px'
+						)
+					))
 					->load_type('margin');
 
 				// Item - Fonts & Colors
@@ -194,27 +198,32 @@
 					->set_title( __( 'Font Size', 'sv100' ) )
 					->set_description( __( 'Font Size in pixel.', 'sv100' ) )
 					->set_default_value( 16 )
+					->set_is_responsive(true)
 					->load_type( 'number' );
 
 				$this->get_setting( 'level_'.$i.'_line_height' )
 					->set_title( __( 'Line Height', 'sv100' ) )
 					->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
 					->set_default_value( 1 )
+					->set_is_responsive(true)
 					->load_type( 'text' );
 
 				$this->get_setting( 'level_'.$i.'_text_color' )
 					->set_title( __( 'Text Color', 'sv100' ) )
-					->set_default_value( '#ffffff' )
+					->set_default_value( '255,255,255,1' )
+					->set_is_responsive(true)
 					->load_type( 'color' );
 
 				$this->get_setting( 'level_'.$i.'_text_bg_color' )
 					->set_title( __( 'Background Color', 'sv100' ) )
-					->set_default_value( '#ffffff' )
+					->set_default_value( '0,0,0,0' )
+					->set_is_responsive(true)
 					->load_type( 'color' );
 
 				$this->get_setting( 'level_'.$i.'_text_deco' )
 					->set_title( __( 'Text Decoration', 'sv100' ) )
 					->set_default_value( 'underline' )
+					->set_is_responsive(true)
 					->set_options( array(
 						'none'			=> __( 'None', 'sv100' ),
 						'underline'		=> __( 'Underline', 'sv100' ),
@@ -224,9 +233,22 @@
 					->load_type( 'select' );
 
 				// Item - Fonts & Colors (Hover/Focus)
+				$this->get_setting( 'level_'.$i.'_text_color_hover' )
+					->set_title( __( 'Text Color', 'sv100' ) )
+					->set_default_value( '31,31,31,1' )
+					->set_is_responsive(true)
+					->load_type( 'color' );
+
+				$this->get_setting( 'level_'.$i.'_text_bg_color_hover' )
+					->set_title( __( 'Background Color', 'sv100' ) )
+					->set_default_value( '0,0,0,0' )
+					->set_is_responsive(true)
+					->load_type( 'color' );
+
 				$this->get_setting( 'level_'.$i.'_text_deco_hover' )
 					->set_title( __( 'Text Decoration', 'sv100' ) )
 					->set_default_value( 'underline' )
+					->set_is_responsive(true)
 					->set_options( array(
 						'none'			=> __( 'None', 'sv100' ),
 						'underline'		=> __( 'Underline', 'sv100' ),
@@ -235,92 +257,17 @@
 					) )
 					->load_type( 'select' );
 
-				$this->get_setting( 'level_'.$i.'_text_color_hover' )
-					->set_title( __( 'Text Color', 'sv100' ) )
-					->set_default_value( '#1e1e1e' )
-					->load_type( 'color' );
-
-				$this->get_setting( 'level_'.$i.'_text_bg_color_hover' )
-					->set_title( __( 'Background Color', 'sv100' ) )
-					->set_default_value( '#ffffff' )
-					->load_type( 'color' );
-
 				// Item - Border
-				$this->get_setting( 'level_'.$i.'_border_radius' )
-					->set_title( __( 'Border Radius', 'sv100' ) )
-					->set_description( __( 'Border Radius in pixel.', 'sv100' ) )
-					->set_min( '0' )
-					->set_default_value( '0' )
-					->load_type( 'number' );
+				$this->get_setting( 'level_'.$i.'_border' )
+					->set_title( __( 'Border', 'sv100' ) )
+					->set_description( __( 'Border', 'sv100' ) )
+					->load_type( 'border' );
 
 				// Item - Background
 				$this->get_setting( 'level_'.$i.'_bg_color' )
 					->set_title( __( 'Background Color', 'sv100' ) )
-					->set_default_value( '#ffffff' )
+					->set_default_value( '255,255,255,0' )
 					->load_type( 'color' );
-
-				$this->get_setting( 'level_'.$i.'_bg_image' )
-					->set_title( __( 'Background Image', 'sv100' ) )
-					->load_type( 'upload' );
-
-				$this->get_setting( 'level_'.$i.'_bg_media_size' )
-					->set_title( __( 'Background Media Size', 'sv100' ) )
-					->set_default_value( 'medium_large' )
-					->set_options( array_combine( get_intermediate_image_sizes(), get_intermediate_image_sizes() ) )
-					->load_type( 'select' );
-
-				$this->get_setting( 'level_'.$i.'_bg_position' )
-					->set_title( __( 'Background Position', 'sv100' ) )
-					->set_default_value( 'center top' )
-					->set_placeholder( 'center top' )
-					->load_type( 'text' );
-
-				$this->get_setting( 'level_'.$i.'_bg_size' )
-					->set_title( __( 'Background Size', 'sv100' ) )
-					->set_description( '<p>' . __( 'Background Size in Pixel', 'sv100' ) . '<br>
-				 ' . __( 'If disabled Background Fit will take effect.', 'sv100' ) . '</p>
-				 <p><strong>' . __( '0 = Disabled', 'sv100' ) . '</strong></p>' )
-					->set_default_value( 0 )
-					->set_placeholder( '0 ' )
-					->set_min( 0 )
-					->load_type( 'number' );
-
-				$this->get_setting( 'level_'.$i.'_bg_fit' )
-					->set_title( __( 'Background Fit', 'sv100' ) )
-					->set_description( __( 'Defines how the background image aspect ratio behaves.', 'sv100' ) )
-					->set_default_value( 'cover' )
-					->set_options( array(
-						'cover' 	=> __( 'Cover', 'sv100' ),
-						'contain' 	=> __( 'Contain', 'sv100' )
-					) )
-					->load_type( 'select' );
-
-				$this->get_setting( 'level_'.$i.'_bg_repeat' )
-					->set_title( __( 'Background Repeat', 'sv100' ) )
-					->set_default_value( 'no-repeat' )
-					->set_options( array(
-						'no-repeat' => __( 'No Repeat', 'sv100' ),
-						'repeat' 	=> __( 'Repeat', 'sv100' ),
-						'repeat-x' 	=> __( 'Repeat Horizontally', 'sv100' ),
-						'repeat-y' 	=> __( 'Repeat Vertically', 'sv100' ),
-						'space' 	=> __( 'Space', 'sv100' ),
-						'round' 	=> __( 'Round', 'sv100' ),
-						'initial' 	=> __( 'Initial', 'sv100' ),
-						'inherit' 	=> __( 'Inherit', 'sv100' )
-					) )
-					->load_type( 'select' );
-
-				$this->get_setting( 'level_'.$i.'_bg_attachment' )
-					->set_title( __( 'Background Attachment', 'sv100' ) )
-					->set_default_value( 'fixed' )
-					->set_options( array(
-						'fixed' 	=> __( 'fixed', 'sv100' ),
-						'scroll' 	=> __( 'scroll', 'sv100' ),
-						'local' 	=> __( 'local', 'sv100' ),
-						'initial' 	=> __( 'initial', 'sv100' ),
-						'inherit' 	=> __( 'inherit', 'sv100' )
-					) )
-					->load_type( 'select' );
 
 				$i++;
 			}
