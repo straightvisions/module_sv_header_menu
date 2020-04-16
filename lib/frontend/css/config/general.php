@@ -2,7 +2,9 @@
 	$properties					= array();
 
 	// Background
-	$properties['background-color']	= $setting->prepare_css_property($bg_color,'rgba(',')');
+	if($bg_color) {
+		$properties['background-color'] = $setting->prepare_css_property($bg_color, 'rgba(', ')');
+	}
 
 	// Margin
 	if($margin) {
