@@ -1,5 +1,13 @@
+.sv100_sv_navigation_sv_header_menu_primary .menu > li{
+    margin-right:10px;
+}
+
+.sv100_sv_navigation_sv_header_menu_primary .menu > li:last-child{
+    margin-right:0;
+}
+
 .sv100_sv_navigation_sv_header_menu_primary .menu > li > a > .item-title {
-	position: relative;
+    position: relative;
 }
 
 .sv100_sv_navigation_sv_header_menu_primary .menu > li > a > .item-title::before {

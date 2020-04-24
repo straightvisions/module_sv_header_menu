@@ -283,8 +283,8 @@
 		}
 
 		protected function register_scripts(): sv_header_menu {
-			$this->get_script( 'common' )
-				->set_path( 'lib/frontend/css/common.css' )
+			$this->get_script( 'mobile' )
+				->set_path( 'lib/frontend/css/mobile.css' )
 				->set_inline( true );
 
 			$this->get_script( 'toggle' )
@@ -297,6 +297,14 @@
 
 			$this->get_script( 'items_level_1' )
 				->set_path( 'lib/frontend/css/items_level_1.css' )
+				->set_inline( true );
+
+			$this->get_script( 'items_level_2' )
+				->set_path( 'lib/frontend/css/items_level_2.css' )
+				->set_inline( true );
+
+			$this->get_script( 'items_level_3' )
+				->set_path( 'lib/frontend/css/items_level_3.css' )
 				->set_inline( true );
 
 			$this->get_script( 'config' )
@@ -338,10 +346,12 @@
 
 			ob_start();
 
-			$this->get_script( 'common' )->set_inline( $settings['inline'] )->set_is_enqueued();
+			$this->get_script( 'mobile' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'toggle' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items_level_1' )->set_inline( $settings['inline'] )->set_is_enqueued();
+			$this->get_script( 'items_level_2' )->set_inline( $settings['inline'] )->set_is_enqueued();
+			$this->get_script( 'items_level_3' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'config' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'navigation_js' )->set_is_enqueued();
 
