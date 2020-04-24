@@ -303,10 +303,12 @@
 				->set_path( 'lib/frontend/css/config.php' )
 				->set_inline( true );
 
-			$this->get_script( 'common_js' )
+
+			$this->get_script( 'navigation_js' )
 				->set_path( 'lib/frontend/js/navigation.js' )
 				->set_type( 'js' )
 				->set_deps( array(  'jquery' ) );
+
 
 
 			return $this;
@@ -341,6 +343,7 @@
 			$this->get_script( 'items' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items_level_1' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'config' )->set_inline( $settings['inline'] )->set_is_enqueued();
+			$this->get_script( 'navigation_js' )->set_is_enqueued();
 
 			require_once ($this->get_path('lib/frontend/tpl/default.php' ));
 
