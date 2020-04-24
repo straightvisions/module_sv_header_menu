@@ -20,7 +20,7 @@
 			}
 		}
 		if($imploded) {
-			$properties['margin'] = $setting->prepare_css_property_responsive($imploded, '', '');
+			$properties['margin'] 			= $setting->prepare_css_property_responsive($imploded, '', '');
 		}
 	}
 
@@ -68,7 +68,8 @@
 		}
 	}
 
-	echo $setting->build_css(
+
+	$setting->build_css(
 		'.sv100_sv_navigation_sv_header_menu_primary',
 		$properties
 	);

@@ -65,4 +65,29 @@
 			'.sv100_sv_header button.sv100_sv_navigation_mobile_menu_toggle.open::before',
 			$properties
 		);
+
+		// Margin
+		if($margin) {
+			$properties				= array();
+			$imploded		= false;
+			foreach($margin as $breakpoint => $val) {
+				$top = (isset($val['top']) && strlen($val['top']) > 0) ? $val['top'] : false;
+				$right = (isset($val['right']) && strlen($val['right']) > 0) ? $val['right'] : false;
+				$bottom = (isset($val['bottom']) && strlen($val['bottom']) > 0) ? $val['bottom'] : false;
+				$left = (isset($val['left']) && strlen($val['left']) > 0) ? $val['left'] : false;
+
+				if($top !== false || $right !== false || $bottom !== false || $left !== false) {
+					$imploded[$breakpoint] = $top . ' ' . $right . ' ' . $bottom . ' ' . $left;
+				}
+			}
+			if($imploded) {
+				$properties['margin'] 			= $setting->prepare_css_property_responsive($imploded, '', '');
+			}
+
+			echo $setting->build_css(
+				'.sv100_sv_header button.sv100_sv_navigation_mobile_menu_toggle',
+				$properties
+			);
+
+		}
 	}
