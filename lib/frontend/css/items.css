@@ -8,29 +8,7 @@
 
 .sv100_sv_navigation_sv_header_menu_primary .menu a {
 	display:block;
-	text-decoration: none;
-    color: black;
-    font-size: 13px;
 }
-
-.sv100_sv_navigation_sv_header_menu_primary .menu a:hover{
-    text-decoration:none;
-    color: blue;
-}
-
-.sv100_sv_navigation_sv_header_menu_primary .sub-menu{
-    background:white;
-}
-
-.sv100_sv_navigation_sv_header_menu_primary .sub-menu a{
-    padding:10px 20px;
-}
-
-.sv100_sv_navigation_sv_header_menu_primary .sub-menu li+li{
-    border-top:1px solid #eee;
-}
-
-
 .sv100_sv_navigation_sv_header_menu_primary .menu .item-title {
 	display: flex;
 	align-items: center;
