@@ -28,16 +28,3 @@
 		}
 
 	}
-
-	/*
-	// Menu
-	$font_menu = $font_family_menu
-		? $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_menu )
-		: false;
-
-	// Submenu
-	$font_sub = $font_family_sub
-		? $script->get_parent()->get_module( 'sv_webfontloader' )->get_font_by_label( $font_family_sub )
-		: false;
-
-*/

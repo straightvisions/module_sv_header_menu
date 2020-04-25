@@ -3,7 +3,7 @@
 
 	// Background
 	if($bg_color) {
-		$properties['background-color'] = $setting->prepare_css_property($bg_color, 'rgba(', ')');
+		$properties['background-color'] = $setting->prepare_css_property_responsive($bg_color, 'rgba(', ')');
 	}
 
 	// Margin
@@ -69,7 +69,7 @@
 	}
 
 
-	$setting->build_css(
+	echo $setting->build_css(
 		'.sv100_sv_navigation_sv_header_menu_primary',
 		$properties
 	);

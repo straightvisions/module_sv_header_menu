@@ -56,8 +56,10 @@
 			// Background
 			$this->get_setting( 'bg_color' )
 				->set_title( __( 'Background Color', 'sv100' ) )
-				->set_default_value( '255,255,255,0' )
+				->set_default_value( '255,255,255,100' )
+				->set_is_responsive(true)
 				->load_type( 'color' );
+
 /* @todo: create a combined background setting type like margin or border
 			$this->get_setting( 'bg_image' )
 				->set_title( __( 'Background Image', 'sv100' ) )
