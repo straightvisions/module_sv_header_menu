@@ -7,10 +7,5 @@
 }
 
 .sv100_sv_navigation_sv_header_menu_primary .menu a {
-	display:block;
-}
-.sv100_sv_navigation_sv_header_menu_primary .menu .item-title {
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
 }

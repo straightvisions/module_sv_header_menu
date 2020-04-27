@@ -217,6 +217,17 @@
 					->set_is_responsive(true)
 					->load_type( 'text' );
 
+				$this->get_setting( 'level_'.$i.'_text_align' )
+					->set_title( __( 'Text Align', 'sv100' ) )
+					->set_options( array(
+						''				=> __('wählen...','sv100'),
+						'left'				=> __('left','sv100'),
+						'center'					=> __('center','sv100'),
+						'right'					=> __('right','sv100')
+					) )
+					->set_is_responsive(true)
+					->load_type( 'select' );
+
 				$this->get_setting( 'level_'.$i.'_text_color' )
 					->set_title( __( 'Text Color', 'sv100' ) )
 					->set_default_value( '255,255,255,1' )

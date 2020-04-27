@@ -78,6 +78,13 @@
 		$properties['line-height']	= $setting->prepare_css_property_responsive($value);
 	}
 
+	$key				= 'level_'.$i.'_text_align';
+	$value				= $$key;
+	if($value) {
+		$properties['text-align']	= $setting->prepare_css_property_responsive($value);
+	}
+
+
 	$key				= 'level_'.$i.'_text_color';
 	$value				= $$key;
 	if($value){

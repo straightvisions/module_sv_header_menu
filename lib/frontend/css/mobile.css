@@ -90,28 +90,3 @@ button.sv100_sv_navigation_mobile_menu_toggle::before {
     visibility: visible;
     transition: visibility 0s ease-in-out 0s, left .5s ease-in-out;
 }
-
-@media ( min-width: 1350px ) {
-    .sv100_sv_header.open .sv100_sv_navigation_sv_header_menu_primary {
-        overflow: unset;
-    }
-}
-
-
-.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary > ul{
-    display:block;
-}
-
-.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary > ul li{
-    display:block;
-    text-align:center;
-}
-
-.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary > ul a{
-    display:block;
-    text-decoration:none;
-    color:black;
-    background:white;
-    text-align:center;
-    padding:5px 10px;
-}
