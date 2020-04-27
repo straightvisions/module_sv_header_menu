@@ -14,7 +14,7 @@
 			$properties
 		);
 
-		// repsonsive item flow
+		// responsive item flow
 		$properties = array();
 
 		$flex_direction = array_map(function ($val) {

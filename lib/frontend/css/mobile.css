@@ -18,7 +18,6 @@ body.sv100_sv_header_open {
 
 
 button.sv100_sv_navigation_mobile_menu_toggle {
-    margin-left: auto;
     border: none;
     outline: none;
     box-shadow: none;
@@ -27,6 +26,7 @@ button.sv100_sv_navigation_mobile_menu_toggle {
     color: transparent;
     background-color: transparent;
     padding: 0;
+	z-index:1200;
 }
 
 button.sv100_sv_navigation_mobile_menu_toggle::before {
@@ -50,8 +50,9 @@ button.sv100_sv_navigation_mobile_menu_toggle::before {
 .sv100_sv_navigation_sv_header_menu_primary {
     display:block !important;
     position: absolute;
-    top: 100%;
-    z-index: 1024;
+    top: 0;
+	bottom: 0;
+    z-index: 1100;
     width: 100%;
     left: -100%;
     visibility: hidden;
