@@ -1,11 +1,18 @@
-.sv100_sv_navigation_sv_header_menu_primary ul {
-	display: flex;
+/* first level */
+.sv100_sv_navigation_sv_header_menu_primary ul{
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
+}
+
+.sv100_sv_navigation_sv_header_menu_primary ul > li{
+	position:relative;
+}
+
+.sv100_sv_navigation_sv_header_menu_primary > .menu {
+	display: flex;
 	align-items: center;
 	justify-content:center;
-	height:100%;
 }
 
 .sv100_sv_navigation_sv_header_menu_primary .menu a {
