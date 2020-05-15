@@ -1,0 +1,36 @@
+body {
+    overflow-x: hidden;
+}
+
+body.sv100_sv_header_open {
+    overflow-y: hidden;
+}
+
+@media (min-width: 1350px) { /* desktop browser fix */
+    body.sv100_sv_header_open {
+        overflow-y: unset;
+    }
+}
+
+.sv100_sv_navigation_sv_header_menu_primary {
+    height: 100%;
+    width:  auto;
+    border-top: 0;
+    z-index: 1;
+    border-top: 0;
+    align-items: stretch;
+    overflow:visible;
+    transition: visibility 0s ease-in-out 0s, left .5s ease-in-out;
+}
+
+.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary{
+    height: 100vh;
+    top:100%;
+    width:100%;
+    padding: 10px 0;
+    z-index: 1024;
+
+    border-top: 1px solid rgba(0,0,0,.1);
+    overflow: hidden;
+
+}
