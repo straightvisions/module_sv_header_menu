@@ -41,9 +41,9 @@
 				->set_title(__('Margin', 'sv100'))
 				->set_is_responsive(true)
 				->set_default_value(array(
-					'top' => '15px',
+					'top' => '10px',
 					'right' => '0',
-					'bottom' => '15px',
+					'bottom' => '10px',
 					'left' => '0',
 				))
 				->load_type('margin');
@@ -133,10 +133,20 @@
 			return $this;
 		}
 		protected function load_settings_toggle(): sv_header_menu{
+			$breakpoints = $this->get_breakpoints();
+
+			$defaults_toggle = $breakpoints;
+			foreach($defaults_toggle as $key => &$value){
+				$value = true;
+				if($key === 'desktop'){
+					$value = false;
+				}
+			}
+
 			$this->get_setting( 'toggle_active' )
 				->set_title( __( 'Active', 'sv100' ) )
 				->set_description( __( 'Show Menu Toggle for mobile Menu', 'sv100' ) )
-				->set_default_value( true )
+				->set_default_value( $defaults_toggle )
 				->set_is_responsive(true)
 				->load_type( 'checkbox' );
 
@@ -164,19 +174,21 @@
 
 			$this->get_setting( 'toggle_closed_color' )
 				->set_title( __( 'Color (Closed)', 'sv100' ) )
-				->set_default_value( '#1e1e1e' )
+				->set_default_value( '30, 30, 30, 1' )
 				->set_is_responsive(true)
 				->load_type( 'color' );
 
 			$this->get_setting( 'toggle_open_color' )
 				->set_title( __( 'Color (Open)', 'sv100' ) )
-				->set_default_value( '#1e1e1e' )
+				->set_default_value( '30, 30, 30, 1' )
 				->set_is_responsive(true)
 				->load_type( 'color' );
 
 			return $this;
 		}
 		protected function load_settings_items(): sv_header_menu {
+			$common = $this->get_module( 'sv_common' );
+
 			$i = 1;
 			while ($i <= 3) {
 				// Item - Spacing
@@ -232,19 +244,23 @@
 
 				$this->get_setting( 'level_'.$i.'_text_color' )
 					->set_title( __( 'Text Color', 'sv100' ) )
-					->set_default_value( '255,255,255,1' )
+					->set_default_value(
+						$common->get_setting('text_color')->get_data()
+					)
 					->set_is_responsive(true)
 					->load_type( 'color' );
 
 				$this->get_setting( 'level_'.$i.'_text_bg_color' )
 					->set_title( __( 'Background Color', 'sv100' ) )
-					->set_default_value( '0,0,0,0' )
+					->set_default_value( ($i === 1) ? '0,0,0,0' : '255,255,255,1' )
 					->set_is_responsive(true)
 					->load_type( 'color' );
 
 				$this->get_setting( 'level_'.$i.'_text_deco' )
 					->set_title( __( 'Text Decoration', 'sv100' ) )
-					->set_default_value( 'underline' )
+					->set_default_value(
+						$common->get_setting('text_deco_link')->get_data()
+					)
 					->set_is_responsive(true)
 					->set_options( array(
 						'none'			=> __( 'None', 'sv100' ),
@@ -257,19 +273,19 @@
 				// Item - Fonts & Colors (Hover/Focus)
 				$this->get_setting( 'level_'.$i.'_text_color_hover' )
 					->set_title( __( 'Text Color', 'sv100' ) )
-					->set_default_value( '31,31,31,1' )
+					->set_default_value( $common->get_setting('text_color_link_hover')->get_data() )
 					->set_is_responsive(true)
 					->load_type( 'color' );
 
 				$this->get_setting( 'level_'.$i.'_text_bg_color_hover' )
 					->set_title( __( 'Background Color', 'sv100' ) )
-					->set_default_value( '0,0,0,0' )
+					->set_default_value( '255,255,255,1' )
 					->set_is_responsive(true)
 					->load_type( 'color' );
 
 				$this->get_setting( 'level_'.$i.'_text_deco_hover' )
 					->set_title( __( 'Text Decoration', 'sv100' ) )
-					->set_default_value( 'underline' )
+					->set_default_value( $common->get_setting('text_deco_link_hover')->get_data() )
 					->set_is_responsive(true)
 					->set_options( array(
 						'none'			=> __( 'None', 'sv100' ),
@@ -298,8 +314,8 @@
 		}
 
 		protected function register_scripts(): sv_header_menu {
-			$this->get_script( 'mobile' )
-				->set_path( 'lib/frontend/css/mobile.css' )
+			$this->get_script( 'general' )
+				->set_path( 'lib/frontend/css/general.css' )
 				->set_inline( true );
 
 			$this->get_script( 'toggle' )
@@ -325,7 +341,6 @@
 			$this->get_script( 'config' )
 				->set_path( 'lib/frontend/css/config.php' )
 				->set_inline( true );
-
 
 			$this->get_script( 'navigation_js' )
 				->set_path( 'lib/frontend/js/navigation.js' )
@@ -361,12 +376,14 @@
 
 			ob_start();
 
-			$this->get_script( 'mobile' )->set_inline( $settings['inline'] )->set_is_enqueued();
+			$this->get_script( 'general' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'toggle' )->set_inline( $settings['inline'] )->set_is_enqueued();
+
 			$this->get_script( 'items' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items_level_1' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items_level_2' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items_level_3' )->set_inline( $settings['inline'] )->set_is_enqueued();
+
 			$this->get_script( 'config' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'navigation_js' )->set_is_enqueued();
 
