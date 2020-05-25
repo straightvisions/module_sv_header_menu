@@ -215,6 +215,7 @@
 					->set_title( __( 'Font Family', 'sv100' ) )
 					->set_description( __( 'Choose a font for your text.', 'sv100' ) )
 					->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+					->set_is_responsive(true)
 					->load_type( 'select' );
 
 				$this->get_setting( 'level_'.$i.'_font_size' )
