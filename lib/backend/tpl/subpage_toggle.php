@@ -17,5 +17,11 @@
 			echo $module->get_setting( 'toggle_open_color' )->form();
 		?>
 	</div>
+
+    <div class="sv_setting_flex">
+		<?php
+			echo $module->get_setting( 'toggle_margin' )->form();
+		?>
+    </div>
 </div>
 <?php } ?>

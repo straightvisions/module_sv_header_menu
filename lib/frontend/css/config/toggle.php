@@ -94,7 +94,7 @@
 
 		echo $_s->build_css(
 			'.sv100_sv_header button.sv100_sv_navigation_mobile_menu_toggle',
-			$script->get_parent()->get_setting('margin')->get_css_data()
+			$script->get_parent()->get_setting('toggle_margin')->get_css_data()
 		);
 
 	}
