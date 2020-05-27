@@ -3,7 +3,7 @@ body {
 }
 
 body.sv100_sv_header_open {
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/ /*@todo make a setting */
 }
 
 @media (min-width: 1350px) { /* desktop browser fix */
