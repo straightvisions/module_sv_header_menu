@@ -27,7 +27,6 @@ body.sv100_sv_header_open {
     height: 100vh;
     top:100%;
     width:100%;
-    padding: 10px 0;
     z-index: 1024;
 
     border-top: 1px solid rgba(0,0,0,.1);
