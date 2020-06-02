@@ -33,7 +33,7 @@
 		foreach($value as $breakpoint => $val) {
 			if($val != 'none'){
 				$imploded['width'][$breakpoint] = '100%';
-				$imploded['border-bottom'][$breakpoint] = '1px solid #FFF';
+				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$script->get_parent()->get_setting('level_'.$i.'_text_color')->get_data()[$breakpoint].')';
 
 			}
 		}
@@ -60,7 +60,7 @@
 		foreach($value as $breakpoint => $val) {
 			if($val != 'none'){
 				$imploded['width'][$breakpoint] = '100%';
-				$imploded['border-bottom'][$breakpoint] = '1px solid #FFF';
+				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$script->get_parent()->get_setting('level_'.$i.'_text_color_hover')->get_data()[$breakpoint].')';
 				$imploded['transition'][$breakpoint] = 'width .25s ease-in-out';
 			}
 		}
