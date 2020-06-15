@@ -212,12 +212,10 @@
 					->set_title(__('Padding', 'sv100'))
 					->set_is_responsive(true)
 					->set_default_value(array(
-						'mobile'		=> array(
-							'top'		=> '10px',
-							'right'		=> '10px',
-							'bottom'	=> '10px',
-							'left'		=> '10px'
-						)
+						'top'		=> '10px',
+						'right'		=> '10px',
+						'bottom'	=> '10px',
+						'left'		=> '10px'
 					))
 					->load_type('margin');
 
