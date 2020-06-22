@@ -33,6 +33,14 @@
 			echo $module->get_setting( 'level_'.$i.'_text_deco_hover' )->form();
 		?>
 	</div>
+	<h3 class="divider"><?php _e( 'Active', 'sv100' ); ?></h3>
+	<div class="sv_setting_flex">
+		<?php
+			echo $module->get_setting( 'level_'.$i.'_text_color_active' )->form();
+			echo $module->get_setting( 'level_'.$i.'_text_bg_color_active' )->form();
+			echo $module->get_setting( 'level_'.$i.'_text_deco_active' )->form();
+		?>
+	</div>
 	<h3><?php _e('Border', 'sv100'); ?></h3>
 	<div class="sv_setting_flex">
 		<?php echo $module->get_setting( 'level_'.$i.'_border' )->form(); ?>

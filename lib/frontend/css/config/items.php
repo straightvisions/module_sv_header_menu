@@ -24,6 +24,17 @@
 		)
 	);
 
+	// Active
+	echo $_s->build_css(
+		$level[$i].' > li.active > a',
+		array_merge(
+			$script->get_parent()->get_setting('level_'.$i.'_text_color_active')->get_css_data(),
+			$script->get_parent()->get_setting('level_'.$i.'_text_bg_color_active')->get_css_data('background-color'),
+			$script->get_parent()->get_setting('level_'.$i.'_margin')->get_css_data(),
+			$script->get_parent()->get_setting('border')->get_css_data()
+		)
+	);
+
 	// Text Decoration
 	$properties			= array();
 
@@ -72,6 +83,34 @@
 
 			echo $setting->build_css(
 				$level[$i].' > li:hover > a > .item-title::before',
+				$properties
+			);
+		}
+	}
+
+	// Text Decoration Active
+	// @todo doubled code
+	$properties			= array();
+
+	$key				= 'level_'.$i.'_text_deco_active';
+	$value				= $$key;
+	if($value){
+		$imploded		= false;
+		foreach($value as $breakpoint => $val) {
+			if($val != 'none'){
+				$imploded['width'][$breakpoint] = '100%';
+				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$script->get_parent()->get_setting('level_'.$i.'_text_color_active')->get_data()[$breakpoint].')';
+				$imploded['transition'][$breakpoint] = 'width .25s ease-in-out';
+			}
+		}
+
+		if($imploded) {
+			$properties['width'] = $setting->prepare_css_property_responsive($imploded['width'], '', '');
+			$properties['border-bottom'] = $setting->prepare_css_property_responsive($imploded['border-bottom'], '', '');
+			$properties['transition'] = $setting->prepare_css_property_responsive($imploded['transition'], '', '');
+
+			echo $setting->build_css(
+				$level[$i].' > li.active > a > .item-title::before',
 				$properties
 			);
 		}

@@ -305,6 +305,31 @@
 					) )
 					->load_type( 'select' );
 
+					// Item - Fonts & Colors (Active)
+				$this->get_setting( 'level_'.$i.'_text_color_active' )
+					->set_title( __( 'Text Color', 'sv100' ) )
+					->set_default_value( $common->get_setting('text_color_link_active')->get_data() )
+					->set_is_responsive(true)
+					->load_type( 'color' );
+
+				$this->get_setting( 'level_'.$i.'_text_bg_color_active' )
+					->set_title( __( 'Background Color', 'sv100' ) )
+					->set_default_value( '255,255,255,1' )
+					->set_is_responsive(true)
+					->load_type( 'color' );
+
+				$this->get_setting( 'level_'.$i.'_text_deco_active' )
+					->set_title( __( 'Text Decoration', 'sv100' ) )
+					->set_default_value( $common->get_setting('text_deco_link_active')->get_data() )
+					->set_is_responsive(true)
+					->set_options( array(
+						'none'			=> __( 'None', 'sv100' ),
+						'underline'		=> __( 'Underline', 'sv100' ),
+						'line-through'	=> __( 'Line Through', 'sv100' ),
+						'overline'		=> __( 'Overline', 'sv100' ),
+					) )
+					->load_type( 'select' );
+
 				// Item - Border
 				$this->get_setting( 'level_'.$i.'_border' )
 					->set_title( __( 'Border', 'sv100' ) )
