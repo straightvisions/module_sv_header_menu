@@ -8,3 +8,10 @@
 			$script->get_parent()->get_setting('border')->get_css_data()
 		)
 	);
+
+	echo $_s->build_css(
+		'.sv100_sv_navigation_sv_header_menu_primary > .menu',
+		array_merge(
+			$script->get_parent()->get_setting('text_align')->get_css_data('align-items')
+		)
+	);

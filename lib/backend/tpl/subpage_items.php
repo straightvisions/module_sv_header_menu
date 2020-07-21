@@ -14,7 +14,6 @@
 			echo $module->get_setting( 'level_'.$i.'_font_family' )->form();
 			echo $module->get_setting( 'level_'.$i.'_font_size' )->form();
 			echo $module->get_setting( 'level_'.$i.'_line_height' )->form();
-			echo $module->get_setting( 'level_'.$i.'_text_align' )->form();
 		?>
 	</div>
 	<h3 class="divider"><?php _e( 'Color', 'sv100' ); ?></h3>

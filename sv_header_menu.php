@@ -60,6 +60,18 @@
 				->set_is_responsive(true)
 				->load_type( 'color' );
 
+			$this->get_setting( 'text_align' )
+				->set_title( __( 'Text Align', 'sv100' ) )
+				->set_options( array(
+					''				=> __('wählen...','sv100'),
+					'flex-start'				=> __('left','sv100'),
+					'center'					=> __('center','sv100'),
+					'flex-end'					=> __('right','sv100')
+				) )
+				->set_default_value('center')
+				->set_is_responsive(true)
+				->load_type( 'select' );
+
 /* @todo: create a combined background setting type like margin or border
 			$this->get_setting( 'bg_image' )
 				->set_title( __( 'Background Image', 'sv100' ) )
@@ -240,17 +252,6 @@
 					->set_default_value( 1 )
 					->set_is_responsive(true)
 					->load_type( 'text' );
-
-				$this->get_setting( 'level_'.$i.'_text_align' )
-					->set_title( __( 'Text Align', 'sv100' ) )
-					->set_options( array(
-						''				=> __('wählen...','sv100'),
-						'left'				=> __('left','sv100'),
-						'center'					=> __('center','sv100'),
-						'right'					=> __('right','sv100')
-					) )
-					->set_is_responsive(true)
-					->load_type( 'select' );
 
 				$this->get_setting( 'level_'.$i.'_text_color' )
 					->set_title( __( 'Text Color', 'sv100' ) )

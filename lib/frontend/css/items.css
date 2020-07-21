@@ -9,12 +9,6 @@
 	position:relative;
 }
 
-.sv100_sv_navigation_sv_header_menu_primary > .menu {
-	display: flex;
-	align-items: center;
-	justify-content:center;
-}
-
 .sv100_sv_navigation_sv_header_menu_primary .menu a {
 	display: flex;
 	white-space: nowrap;
