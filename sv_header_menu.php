@@ -72,7 +72,15 @@
 				->set_is_responsive(true)
 				->load_type( 'select' );
 
-/* @todo: create a combined background setting type like margin or border
+			$this->get_setting( 'max_width' )
+				->set_title( __( 'Max Width', 'sv100' ) )
+				->set_description( __( 'Set the max width of the header menu bar.', 'sv100' ) )
+				->set_default_value( '100%' )
+				->set_is_responsive(true)
+				->load_type( 'text' );
+
+
+			/* @todo: create a combined background setting type like margin or border
 			$this->get_setting( 'bg_image' )
 				->set_title( __( 'Background Image', 'sv100' ) )
 				->load_type( 'upload' );

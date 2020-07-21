@@ -6,6 +6,7 @@
 				echo $module->get_setting( 'active' )->form();
 				echo $module->get_setting( 'bg_color' )->form();
 				echo $module->get_setting( 'text_align' )->form();
+				echo $module->get_setting( 'max_width' )->form();
 			?>
 		</div>
 		<h3><?php _e('Spacing', 'sv100'); ?></h3>
