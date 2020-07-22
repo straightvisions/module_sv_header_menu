@@ -23,6 +23,10 @@ body.sv100_sv_header_open {
 	transition: visibility 0s ease-in-out 0s, left .5s ease-in-out;
 }
 
+.sv100_sv_header .sv100_sv_navigation_sv_header_menu_primary > ul.menu {
+	display: flex;
+}
+
 .sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary{
 	height: 100vh;
 	top:100%;
@@ -30,10 +34,6 @@ body.sv100_sv_header_open {
 	z-index: 1024;
 	border-top: 1px solid rgba(0,0,0,.1);
 	overflow: hidden;
-}
-
-.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary > ul.menu{
-	display:flex;
 }
 
 .sv100_sv_navigation_sv_header_menu_primary ul{
