@@ -4,6 +4,7 @@
 	<div class="sv_setting_flex">
 		<?php echo $module->get_setting( 'toggle_active' )->form(); ?>
 		<?php echo $module->get_setting( 'toggle_size' )->form(); ?>
+		<?php echo $module->get_setting( 'toggle_menu_style' )->form(); ?>
 	</div>
 	<div class="sv_setting_flex">
 		<?php

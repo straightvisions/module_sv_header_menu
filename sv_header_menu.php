@@ -178,6 +178,16 @@
 				->set_is_responsive(true)
 				->load_type( 'number' );
 
+			$this->get_setting( 'toggle_menu_style' )
+				->set_title( __( 'Menu Style', 'sv100' ) )
+				->set_description( __( 'Change Style of the Menu', 'sv100' ) )
+				->set_options( array(
+					'hover'		=> 'Hover over Content',
+					'slide'		=> 'Slide and move Content'
+				) )
+				->set_default_value( 'hover' )
+				->load_type( 'select' );
+
 			$this->get_setting( 'toggle_closed' )
 				->set_title( __( 'Icon Menu', 'sv100' ) )
 				->set_description( __( 'Here you can post the SVG embed code.', 'sv100' ) )
@@ -359,7 +369,7 @@
 
 		protected function register_scripts(): sv_header_menu {
 			$this->get_script( 'general' )
-				->set_path( 'lib/frontend/css/general.css' )
+				->set_path( 'lib/frontend/css/common.css' )
 				->set_inline( true );
 
 			$this->get_script( 'toggle' )
@@ -387,7 +397,9 @@
 				->set_type( 'js' )
 				->set_deps( array(  'jquery' ) );
 
-
+			$this->get_script( 'toggle_style_slide' )
+				->set_path( 'lib/frontend/css/toggle_style_slide.css' )
+				->set_inline( true );
 
 			return $this;
 		}
@@ -425,6 +437,10 @@
 
 			$this->get_script( 'config' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'navigation_js' )->set_is_enqueued();
+
+			if($this->get_setting( 'toggle_menu_style' )->get_data() == 'slide'){
+				$this->get_script( 'toggle_style_slide' )->set_is_enqueued();
+			}
 
 			require_once ($this->get_path('lib/frontend/tpl/default.php' ));
 
