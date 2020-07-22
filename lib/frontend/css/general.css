@@ -1,33 +1,52 @@
 body {
-    overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 body.sv100_sv_header_open {
-    /*overflow-y: hidden;*/ /*@todo make a setting */
+	/*overflow-y: hidden;*/ /*@todo make a setting */
 }
 
 @media (min-width: 1350px) { /* desktop browser fix */
-    body.sv100_sv_header_open {
-        overflow-y: unset;
-    }
+	body.sv100_sv_header_open {
+		overflow-y: unset;
+	}
 }
 
 .sv100_sv_navigation_sv_header_menu_primary {
-    height: 100%;
-    width:  auto;
-    border-top: 0;
-    z-index: 1;
-    border-top: 0;
-    align-items: stretch;
-    overflow:visible;
-    transition: visibility 0s ease-in-out 0s, left .5s ease-in-out;
+	height: 100%;
+	width:  auto;
+	border-top: 0;
+	z-index: 1;
+	border-top: 0;
+	align-items: stretch;
+	overflow:visible;
+	transition: visibility 0s ease-in-out 0s, left .5s ease-in-out;
 }
 
 .sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary{
-    height: 100vh;
-    top:100%;
-    width:100%;
-    z-index: 1024;
-    border-top: 1px solid rgba(0,0,0,.1);
-    overflow: hidden;
+	height: 100vh;
+	top:100%;
+	width:100%;
+	z-index: 1024;
+	border-top: 1px solid rgba(0,0,0,.1);
+	overflow: hidden;
+}
+
+.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary > ul.menu{
+	display:flex;
+}
+
+.sv100_sv_navigation_sv_header_menu_primary ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.sv100_sv_navigation_sv_header_menu_primary .menu a {
+	display: flex;
+	white-space: nowrap;
+}
+
+/* first level */
+.sv100_sv_navigation_sv_header_menu_primary ul > li{
+	position:relative;
 }

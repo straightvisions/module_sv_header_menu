@@ -366,10 +366,6 @@
 				->set_path( 'lib/frontend/css/toggle.css' )
 				->set_inline( true );
 
-			$this->get_script( 'items' )
-				->set_path( 'lib/frontend/css/items.css' )
-				->set_inline( true );
-
 			$this->get_script( 'items_level_1' )
 				->set_path( 'lib/frontend/css/items_level_1.css' )
 				->set_inline( true );
@@ -423,7 +419,6 @@
 			$this->get_script( 'general' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'toggle' )->set_inline( $settings['inline'] )->set_is_enqueued();
 
-			$this->get_script( 'items' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items_level_1' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items_level_2' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'items_level_3' )->set_inline( $settings['inline'] )->set_is_enqueued();
