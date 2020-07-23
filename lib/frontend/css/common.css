@@ -21,6 +21,7 @@ body.sv100_sv_header_open {
 	align-items: stretch;
 	overflow:visible;
 	transition: visibility 0s ease-in-out 0s, left .5s ease-in-out;
+	user-select: none;
 }
 
 .sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary{
@@ -46,7 +47,15 @@ body.sv100_sv_header_open {
 	white-space: nowrap;
 }
 
+.sv100_sv_navigation_sv_header_menu_primary ul li{
+	cursor:pointer;
+}
+
 /* first level */
 .sv100_sv_navigation_sv_header_menu_primary ul > li{
 	position:relative;
+}
+.sv100_sv_navigation_sv_header_menu_primary .menu .item-title {
+	display: flex;
+	align-items: center;
 }

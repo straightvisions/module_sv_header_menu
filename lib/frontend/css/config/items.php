@@ -13,6 +13,13 @@
 		)
 	);
 
+	echo $_s->build_css(
+		$level[$i].' > li.dropdown > a > .item-title::after',
+		array_merge(
+			$script->get_parent()->get_setting('level_'.$i.'_text_color')->get_css_data('background-color')
+		)
+	);
+
 	// Hover
 	echo $_s->build_css(
 		$level[$i].' > li:hover > a, '.$level[$i].' > li:focus > a',
