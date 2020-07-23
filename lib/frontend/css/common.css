@@ -33,7 +33,7 @@ body.sv100_sv_header_open {
 	overflow: hidden;
 }
 
-.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary > ul.menu{
+.sv100_sv_header .sv100_sv_navigation_sv_header_menu_primary > ul.menu{
 	display:flex;
 }
 
