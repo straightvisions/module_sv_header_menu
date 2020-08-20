@@ -34,10 +34,6 @@
 	position: relative;
 }
 
-.sv100_sv_header:not(.open) .sv100_sv_navigation_sv_header_menu_primary .sub-menu .item-title {
-	transition: background-color .25s ease-in-out, color .25s ease-in-out;
-}
-
 .sv100_sv_header:not(.open) .sv100_sv_navigation_sv_header_menu_primary .sub-menu.depth_1 {
 	margin-left: 0;
 	left: 100%;
