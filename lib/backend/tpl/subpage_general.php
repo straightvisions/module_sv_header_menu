@@ -5,6 +5,10 @@
 			<?php
 				echo $module->get_setting( 'active' )->form();
 				echo $module->get_setting( 'bg_color' )->form();
+			?>
+		</div>
+		<div class="sv_setting_flex">
+			<?php
 				echo $module->get_setting( 'text_align' )->form();
 				echo $module->get_setting( 'max_width' )->form();
 			?>
