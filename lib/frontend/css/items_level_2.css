@@ -12,7 +12,9 @@
 .sv100_sv_header:not(.open) .sv100_sv_navigation_sv_header_menu_primary .sub-menu {
 	display: flex !important;
 	flex-direction: column;
+	-webkit-flex-direction: column;
 	align-items: flex-start;
+	-webkit-align-items: flex-start;
 	position: absolute;
 	top: 100%;
 	min-width: 250px;

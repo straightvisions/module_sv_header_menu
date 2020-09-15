@@ -53,6 +53,7 @@
 		}, $toggle_active);
 
 		$properties['flex-direction'] = $setting->prepare_css_property_responsive($flex_direction, '', '');
+		$properties['-webkit-flex-direction'] = $setting->prepare_css_property_responsive($flex_direction, '', '');
 
 		echo $setting->build_css(
 			'.sv100_sv_navigation_sv_header_menu_primary > ul',

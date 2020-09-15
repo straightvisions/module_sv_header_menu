@@ -58,4 +58,5 @@ body.sv100_sv_header_open {
 .sv100_sv_navigation_sv_header_menu_primary .menu .item-title {
 	display: flex;
 	align-items: center;
+	-webkit-align-items: center;
 }
