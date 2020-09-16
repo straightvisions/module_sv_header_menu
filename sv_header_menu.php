@@ -228,8 +228,6 @@
 			return $this;
 		}
 		protected function load_settings_items(): sv_header_menu {
-			$common = $this->get_module( 'sv_common' );
-
 			$i = 1;
 			while ($i <= 3) {
 				// Item - Spacing
@@ -253,7 +251,7 @@
 				$this->get_setting( 'level_'.$i.'_font_family' )
 					->set_title( __( 'Font Family', 'sv100' ) )
 					->set_description( __( 'Choose a font for your text.', 'sv100' ) )
-					->set_options( $this->get_module( 'sv_webfontloader' )->get_font_options() )
+					->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
 					->set_is_responsive(true)
 					->load_type( 'select' );
 
@@ -273,9 +271,7 @@
 
 				$this->get_setting( 'level_'.$i.'_text_color' )
 					->set_title( __( 'Text Color', 'sv100' ) )
-					->set_default_value(
-						$common->get_setting('text_color')->get_data()
-					)
+					->set_default_value( $this->get_module( 'sv_common' ) ? $this->get_module( 'sv_common' )->get_setting('text_color')->get_data() : false )
 					->set_is_responsive(true)
 					->load_type( 'color' );
 
@@ -287,9 +283,7 @@
 
 				$this->get_setting( 'level_'.$i.'_text_deco' )
 					->set_title( __( 'Text Decoration', 'sv100' ) )
-					->set_default_value(
-						$common->get_setting('text_deco_link')->get_data()
-					)
+					->set_default_value( $this->get_module( 'sv_common' ) ? $this->get_module( 'sv_common' )->get_setting('text_deco_link')->get_data() : false )
 					->set_is_responsive(true)
 					->set_options( array(
 						'none'			=> __( 'None', 'sv100' ),
@@ -302,7 +296,7 @@
 				// Item - Fonts & Colors (Hover/Focus)
 				$this->get_setting( 'level_'.$i.'_text_color_hover' )
 					->set_title( __( 'Text Color', 'sv100' ) )
-					->set_default_value( $common->get_setting('text_color_link_hover')->get_data() )
+					->set_default_value( $this->get_module( 'sv_common' ) ? $this->get_module( 'sv_common' )->get_setting('text_color_link_hover')->get_data() : false )
 					->set_is_responsive(true)
 					->load_type( 'color' );
 
@@ -314,7 +308,7 @@
 
 				$this->get_setting( 'level_'.$i.'_text_deco_hover' )
 					->set_title( __( 'Text Decoration', 'sv100' ) )
-					->set_default_value( $common->get_setting('text_deco_link_hover')->get_data() )
+					->set_default_value( $this->get_module( 'sv_common' ) ? $this->get_module( 'sv_common' )->get_setting('text_deco_link_hover')->get_data() : false )
 					->set_is_responsive(true)
 					->set_options( array(
 						'none'			=> __( 'None', 'sv100' ),
@@ -327,7 +321,7 @@
 					// Item - Fonts & Colors (Active)
 				$this->get_setting( 'level_'.$i.'_text_color_active' )
 					->set_title( __( 'Text Color', 'sv100' ) )
-					->set_default_value( $common->get_setting('text_color_link_active')->get_data() )
+					->set_default_value( $this->get_module( 'sv_common' ) ? $this->get_module( 'sv_common' )->get_setting('text_color_link_active')->get_data() : false )
 					->set_is_responsive(true)
 					->load_type( 'color' );
 
@@ -339,7 +333,7 @@
 
 				$this->get_setting( 'level_'.$i.'_text_deco_active' )
 					->set_title( __( 'Text Decoration', 'sv100' ) )
-					->set_default_value( $common->get_setting('text_deco_link_active')->get_data() )
+					->set_default_value( $this->get_module( 'sv_common' ) ? $this->get_module( 'sv_common' )->get_setting('text_deco_link_active')->get_data() : false )
 					->set_is_responsive(true)
 					->set_options( array(
 						'none'			=> __( 'None', 'sv100' ),
@@ -426,7 +420,9 @@
 				$this->get_module_name()
 			);
 
-			ob_start();
+			if ( !has_nav_menu( $settings['location'] ) ) {
+				return '';
+			}
 
 			$this->get_script( 'general' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'toggle' )->set_inline( $settings['inline'] )->set_is_enqueued();
@@ -441,6 +437,8 @@
 			if($this->get_setting( 'toggle_menu_style' )->get_data() == 'slide'){
 				$this->get_script( 'toggle_style_slide' )->set_is_enqueued();
 			}
+
+			ob_start();
 
 			require_once ($this->get_path('lib/frontend/tpl/default.php' ));
 
