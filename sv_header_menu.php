@@ -420,7 +420,7 @@
 				$this->get_module_name()
 			);
 
-			if ( !has_nav_menu( $settings['location'] ) ) {
+			if ( !has_nav_menu( $this->get_module('sv_navigation')->get_prefix($this->get_module_name() . '_primary') ) ) {
 				return '';
 			}
 
