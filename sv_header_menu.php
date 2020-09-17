@@ -15,10 +15,6 @@
 		public function init() {
 			$this->set_module_title( __( 'SV Header Menu', 'sv100' ) )
 				->set_module_desc( __( 'Menu Header Settings', 'sv100' ) )
-				->load_settings()
-				->load_settings_toggle()
-				->load_settings_items()
-				->register_scripts()
 				->register_navs()
 				->set_section_title( __( 'Header Menu', 'sv100' ) )
 				->set_section_desc( $this->get_module_desc() )
@@ -149,6 +145,8 @@
 				->set_title( __( 'Border', 'sv100' ) )
 				->set_description( __( 'Border', 'sv100' ) )
 				->load_type( 'border' );
+
+			$this->load_settings_toggle()->load_settings_items();
 
 			return $this;
 		}
@@ -411,6 +409,14 @@
 		}
 
 		public function load( $settings = array() ): string {
+			if ( !has_nav_menu( $this->get_module('sv_navigation')->get_prefix($this->get_module_name() . '_primary') ) ) {
+				return '';
+			}
+
+			if(!is_admin()){
+				$this->load_settings()->register_scripts();
+			}
+
 			$settings								= shortcode_atts(
 				array(
 					'inline'						=> true,
@@ -419,10 +425,6 @@
 				$settings,
 				$this->get_module_name()
 			);
-
-			if ( !has_nav_menu( $this->get_module('sv_navigation')->get_prefix($this->get_module_name() . '_primary') ) ) {
-				return '';
-			}
 
 			$this->get_script( 'general' )->set_inline( $settings['inline'] )->set_is_enqueued();
 			$this->get_script( 'toggle' )->set_inline( $settings['inline'] )->set_is_enqueued();
