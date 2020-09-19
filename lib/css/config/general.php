@@ -1,11 +1,10 @@
 <?php
-
-		echo $_s->build_css(
-			'.sv100_sv_navigation_container_sv100_sv_navigation_sv_header_menu_primary',
-			array_merge(
-				$script->get_parent()->get_setting('max_width')->get_css_data('max-width')
-			)
-		);
+	echo $_s->build_css(
+		'.sv100_sv_navigation_container_sv100_sv_navigation_sv_header_menu_primary',
+		array_merge(
+			$script->get_parent()->get_setting('max_width')->get_css_data('max-width')
+		)
+	);
 
 	echo $_s->build_css(
 		'.sv100_sv_navigation_sv_header_menu_primary',

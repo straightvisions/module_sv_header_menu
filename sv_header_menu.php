@@ -1,26 +1,17 @@
 <?php
 	namespace sv100;
 
-	/**
-	 * @version         4.150
-	 * @author			straightvisions GmbH
-	 * @package			sv100
-	 * @copyright		2019 straightvisions GmbH
-	 * @link			https://straightvisions.com
-	 * @since			1.000
-	 * @license			See license.txt or https://straightvisions.com
-	 */
-
 	class sv_header_menu extends init {
 		public function init() {
 			$this->set_module_title( __( 'SV Header Menu', 'sv100' ) )
 				->set_module_desc( __( 'Menu Header Settings', 'sv100' ) )
 				->register_navs()
-				->set_section_title( __( 'Header Menu', 'sv100' ) )
+				->set_css_cache_active()
+				->set_section_title( $this->get_module_title() )
 				->set_section_desc( $this->get_module_desc() )
 				->set_section_type( 'settings' )
-				->set_section_template_path( $this->get_path( 'lib/backend/tpl/settings.php' ) )
-				->set_section_order(22)
+				->set_section_template_path()
+				->set_section_order(5000)
 				->get_root()
 				->add_section( $this );
 		}
@@ -360,38 +351,34 @@
 		}
 
 		protected function register_scripts(): sv_header_menu {
-			$this->get_script( 'general' )
-				->set_path( 'lib/frontend/css/common.css' )
-				->set_inline( true );
+			parent::register_scripts();
 
+			// Register Styles
 			$this->get_script( 'toggle' )
-				->set_path( 'lib/frontend/css/toggle.css' )
+				->set_path( 'lib/css/common/toggle.css' )
 				->set_inline( true );
 
 			$this->get_script( 'items_level_1' )
-				->set_path( 'lib/frontend/css/items_level_1.css' )
+				->set_path( 'lib/css/common/items_level_1.css' )
 				->set_inline( true );
 
 			$this->get_script( 'items_level_2' )
-				->set_path( 'lib/frontend/css/items_level_2.css' )
+				->set_path( 'lib/css/common/items_level_2.css' )
 				->set_inline( true );
 
 			$this->get_script( 'items_level_3' )
-				->set_path( 'lib/frontend/css/items_level_3.css' )
+				->set_path( 'lib/css/common/items_level_3.css' )
 				->set_inline( true );
-
-			$this->get_script( 'config' )
-				->set_path( 'lib/frontend/css/config.php' )
-				->set_inline( true );
-
-			$this->get_script( 'navigation_js' )
-				->set_path( 'lib/frontend/js/navigation.js' )
-				->set_type( 'js' )
-				->set_deps( array(  'jquery' ) );
 
 			$this->get_script( 'toggle_style_slide' )
-				->set_path( 'lib/frontend/css/toggle_style_slide.css' )
+				->set_path( 'lib/css/common/toggle_style_slide.css' )
 				->set_inline( true );
+
+			// Register Scripts
+			$this->get_script( 'navigation_js' )
+				->set_path( 'lib/js/frontend/init.js' )
+				->set_type( 'js' )
+				->set_deps( array(  'jquery' ) );
 
 			return $this;
 		}
@@ -409,43 +396,24 @@
 		}
 
 		public function load( $settings = array() ): string {
-			if ( !has_nav_menu( $this->get_module('sv_navigation')->get_prefix($this->get_module_name() . '_primary') ) ) {
+			if (!$this->get_module('sv_navigation') || !has_nav_menu( $this->get_module('sv_navigation')->get_prefix($this->get_module_name() . '_primary') ) ) {
 				return '';
 			}
 
 			if(!is_admin()){
 				$this->load_settings()->register_scripts();
-			}
 
-			$settings								= shortcode_atts(
-				array(
-					'inline'						=> true,
-					'template'                      => false,
-				),
-				$settings,
-				$this->get_module_name()
-			);
-
-			$this->get_script( 'general' )->set_inline( $settings['inline'] )->set_is_enqueued();
-			$this->get_script( 'toggle' )->set_inline( $settings['inline'] )->set_is_enqueued();
-
-			$this->get_script( 'items_level_1' )->set_inline( $settings['inline'] )->set_is_enqueued();
-			$this->get_script( 'items_level_2' )->set_inline( $settings['inline'] )->set_is_enqueued();
-			$this->get_script( 'items_level_3' )->set_inline( $settings['inline'] )->set_is_enqueued();
-
-			$this->get_script( 'config' )->set_inline( $settings['inline'] )->set_is_enqueued();
-			$this->get_script( 'navigation_js' )->set_is_enqueued();
-
-			if($this->get_setting( 'toggle_menu_style' )->get_data() == 'slide'){
-				$this->get_script( 'toggle_style_slide' )->set_is_enqueued();
+				foreach($this->get_scripts() as $script){
+					if($script->get_ID() == 'toggle_style_slide' && $this->get_setting( 'toggle_menu_style' )->get_data() != 'slide'){
+						continue;
+					}
+					$script->set_is_enqueued();
+				}
 			}
 
 			ob_start();
-
-			require_once ($this->get_path('lib/frontend/tpl/default.php' ));
-
-			$output							        = ob_get_contents();
-			ob_end_clean();
+			require_once ($this->get_path('lib/tpl/frontend/default.php' ));
+			$output							        = ob_get_clean();
 
 			return $output;
 		}

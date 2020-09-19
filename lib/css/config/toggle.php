@@ -18,11 +18,11 @@
 		}, $toggle_active);
 
 
-		$properties['position'] 	= $setting->prepare_css_property_responsive($toggle_position, '', '');
-		$properties['visibility'] 	= $setting->prepare_css_property_responsive($toggle_visibility, '', '');
-		$properties['left'] 		= $setting->prepare_css_property_responsive($toggle_left, '', '');
+		$properties['position'] 	= $_s->prepare_css_property_responsive($toggle_position, '', '');
+		$properties['visibility'] 	= $_s->prepare_css_property_responsive($toggle_visibility, '', '');
+		$properties['left'] 		= $_s->prepare_css_property_responsive($toggle_left, '', '');
 
-		echo $setting->build_css(
+		echo $_s->build_css(
 			'.sv100_sv_navigation_sv_header_menu_primary',
 			$properties
 		);
@@ -38,10 +38,10 @@
 			return $val ? '0' : '';
 		}, $toggle_active);
 
-		$properties['visibility'] 	= $setting->prepare_css_property_responsive($toggle_visibility, '', '');
-		$properties['left'] 		= $setting->prepare_css_property_responsive($toggle_left, '', '');
+		$properties['visibility'] 	= $_s->prepare_css_property_responsive($toggle_visibility, '', '');
+		$properties['left'] 		= $_s->prepare_css_property_responsive($toggle_left, '', '');
 
-		echo $setting->build_css(
+		echo $_s->build_css(
 			'.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary',
 			$properties
 		);
@@ -52,9 +52,9 @@
 			return $val ? 'column' : 'row';
 		}, $toggle_active);
 
-		$properties['flex-direction'] = $setting->prepare_css_property_responsive($flex_direction, '', '');
+		$properties['flex-direction'] = $_s->prepare_css_property_responsive($flex_direction, '', '');
 
-		echo $setting->build_css(
+		echo $_s->build_css(
 			'.sv100_sv_navigation_sv_header_menu_primary > ul',
 			$properties
 		);
@@ -67,11 +67,10 @@
 			return $val ? 'block' : 'none';
 		}, $toggle_active);
 
-		$properties['display']	= $setting->prepare_css_property_responsive($toggle,'','');
-		$properties['width']	= $setting->prepare_css_property_responsive($toggle_size,'','px');
-		$properties['height']	= $setting->prepare_css_property_responsive($toggle_size,'','px');
+		$properties['display']	= $_s->prepare_css_property_responsive($toggle,'','');
+		$properties['height'] = $properties['width']	= $_s->prepare_css_property_responsive($script->get_parent()->get_setting('toggle_size')->get_data(),'','px');
 
-		echo $setting->build_css(
+		echo $_s->build_css(
 			'.sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle',
 			$properties
 		);

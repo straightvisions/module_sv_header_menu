@@ -57,10 +57,10 @@
 		}
 
 		if($imploded) {
-			$properties['width'] = $setting->prepare_css_property_responsive($imploded['width'], '', '');
-			$properties['border-bottom'] = $setting->prepare_css_property_responsive($imploded['border-bottom'], '', '');
+			$properties['width'] = $_s->prepare_css_property_responsive($imploded['width'], '', '');
+			$properties['border-bottom'] = $_s->prepare_css_property_responsive($imploded['border-bottom'], '', '');
 
-			echo $setting->build_css(
+			echo $_s->build_css(
 				$level[$i].' > li > a > .item-title::before',
 				$properties
 			);
@@ -71,8 +71,7 @@
 	// @todo doubled code
 	$properties			= array();
 
-	$key				= 'level_'.$i.'_text_deco_hover';
-	$value				= $$key;
+	$value				= $script->get_parent()->get_setting('level_'.$i.'_text_deco_hover')->get_data();
 	if($value){
 		$imploded		= false;
 		foreach($value as $breakpoint => $val) {
@@ -84,11 +83,11 @@
 		}
 
 		if($imploded) {
-			$properties['width'] = $setting->prepare_css_property_responsive($imploded['width'], '', '');
-			$properties['border-bottom'] = $setting->prepare_css_property_responsive($imploded['border-bottom'], '', '');
-			$properties['transition'] = $setting->prepare_css_property_responsive($imploded['transition'], '', '');
+			$properties['width'] = $_s->prepare_css_property_responsive($imploded['width'], '', '');
+			$properties['border-bottom'] = $_s->prepare_css_property_responsive($imploded['border-bottom'], '', '');
+			$properties['transition'] = $_s->prepare_css_property_responsive($imploded['transition'], '', '');
 
-			echo $setting->build_css(
+			echo $_s->build_css(
 				$level[$i].' > li:hover > a > .item-title::before',
 				$properties
 			);
@@ -99,8 +98,7 @@
 	// @todo doubled code
 	$properties			= array();
 
-	$key				= 'level_'.$i.'_text_deco_active';
-	$value				= $$key;
+	$value				= $script->get_parent()->get_setting('level_'.$i.'_text_deco_active')->get_data();
 	if($value){
 		$imploded		= false;
 		foreach($value as $breakpoint => $val) {
@@ -112,11 +110,11 @@
 		}
 
 		if($imploded) {
-			$properties['width'] = $setting->prepare_css_property_responsive($imploded['width'], '', '');
-			$properties['border-bottom'] = $setting->prepare_css_property_responsive($imploded['border-bottom'], '', '');
-			$properties['transition'] = $setting->prepare_css_property_responsive($imploded['transition'], '', '');
+			$properties['width'] = $_s->prepare_css_property_responsive($imploded['width'], '', '');
+			$properties['border-bottom'] = $_s->prepare_css_property_responsive($imploded['border-bottom'], '', '');
+			$properties['transition'] = $_s->prepare_css_property_responsive($imploded['transition'], '', '');
 
-			echo $setting->build_css(
+			echo $_s->build_css(
 				$level[$i].' > li.active > a > .item-title::before',
 				$properties
 			);
