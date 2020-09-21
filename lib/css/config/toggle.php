@@ -1,5 +1,5 @@
 <?php
-	$toggle_active		= $script->get_parent()->get_setting('toggle_active')->get_data();
+	$toggle_active		= $module->get_setting('toggle_active')->get_data();
 
 	if(empty($toggle_active) === false) {
 		// closed setup ------------------------------------------------------------------------------------------------
@@ -68,7 +68,7 @@
 		}, $toggle_active);
 
 		$properties['display']	= $_s->prepare_css_property_responsive($toggle,'','');
-		$properties['height'] = $properties['width']	= $_s->prepare_css_property_responsive($script->get_parent()->get_setting('toggle_size')->get_data(),'','px');
+		$properties['height'] = $properties['width']	= $_s->prepare_css_property_responsive($module->get_setting('toggle_size')->get_data(),'','px');
 
 		echo $_s->build_css(
 			'.sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle',
@@ -78,22 +78,22 @@
 		echo $_s->build_css(
 			'.sv100_sv_navigation_mobile_menu_toggle::before',
 			array_merge(
-				$script->get_parent()->get_setting('toggle_closed')->get_css_data('-webkit-mask-image','url(\'data:image/svg+xml;utf8,','\')'),
-				$script->get_parent()->get_setting('toggle_closed_color')->get_css_data('background-color')
+				$module->get_setting('toggle_closed')->get_css_data('-webkit-mask-image','url(\'data:image/svg+xml;utf8,','\')'),
+				$module->get_setting('toggle_closed_color')->get_css_data('background-color')
 			)
 		);
 
 		echo $_s->build_css(
 			'.sv100_sv_header button.sv100_sv_navigation_mobile_menu_toggle.open::before',
 			array_merge(
-				$script->get_parent()->get_setting('toggle_open')->get_css_data('-webkit-mask-image','url(\'data:image/svg+xml;utf8,','\')'),
-				$script->get_parent()->get_setting('toggle_open_color')->get_css_data('background-color')
+				$module->get_setting('toggle_open')->get_css_data('-webkit-mask-image','url(\'data:image/svg+xml;utf8,','\')'),
+				$module->get_setting('toggle_open_color')->get_css_data('background-color')
 			)
 		);
 
 		echo $_s->build_css(
 			'.sv100_sv_header button.sv100_sv_navigation_mobile_menu_toggle',
-			$script->get_parent()->get_setting('toggle_margin')->get_css_data()
+			$module->get_setting('toggle_margin')->get_css_data()
 		);
 
 	}

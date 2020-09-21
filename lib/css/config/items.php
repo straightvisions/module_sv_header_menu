@@ -2,21 +2,21 @@
 	echo $_s->build_css(
 		$level[$i].' > li > a',
 		array_merge(
-			$script->get_parent()->get_setting('level_'.$i.'_font_family')->get_css_data('font-family'),
-			$script->get_parent()->get_setting('level_'.$i.'_font_size')->get_css_data('font-size','','px'),
-			$script->get_parent()->get_setting('level_'.$i.'_line_height')->get_css_data('line-height'),
-			$script->get_parent()->get_setting('level_'.$i.'_text_color')->get_css_data(),
-			$script->get_parent()->get_setting('level_'.$i.'_text_bg_color')->get_css_data('background-color'),
-			$script->get_parent()->get_setting('level_'.$i.'_padding')->get_css_data('padding'),
-			$script->get_parent()->get_setting('level_'.$i.'_margin')->get_css_data(),
-			$script->get_parent()->get_setting('border')->get_css_data()
+			$module->get_setting('level_'.$i.'_font_family')->get_css_data('font-family'),
+			$module->get_setting('level_'.$i.'_font_size')->get_css_data('font-size','','px'),
+			$module->get_setting('level_'.$i.'_line_height')->get_css_data('line-height'),
+			$module->get_setting('level_'.$i.'_text_color')->get_css_data(),
+			$module->get_setting('level_'.$i.'_text_bg_color')->get_css_data('background-color'),
+			$module->get_setting('level_'.$i.'_padding')->get_css_data('padding'),
+			$module->get_setting('level_'.$i.'_margin')->get_css_data(),
+			$module->get_setting('border')->get_css_data()
 		)
 	);
 
 	echo $_s->build_css(
 		$level[$i].' > li.dropdown > a > .item-title::after',
 		array_merge(
-			$script->get_parent()->get_setting('level_'.$i.'_text_color')->get_css_data('background-color')
+			$module->get_setting('level_'.$i.'_text_color')->get_css_data('background-color')
 		)
 	);
 
@@ -24,10 +24,10 @@
 	echo $_s->build_css(
 		$level[$i].' > li:hover > a, '.$level[$i].' > li:focus > a',
 		array_merge(
-			$script->get_parent()->get_setting('level_'.$i.'_text_color_hover')->get_css_data(),
-			$script->get_parent()->get_setting('level_'.$i.'_text_bg_color_hover')->get_css_data('background-color'),
-			$script->get_parent()->get_setting('level_'.$i.'_margin')->get_css_data(),
-			$script->get_parent()->get_setting('border')->get_css_data()
+			$module->get_setting('level_'.$i.'_text_color_hover')->get_css_data(),
+			$module->get_setting('level_'.$i.'_text_bg_color_hover')->get_css_data('background-color'),
+			$module->get_setting('level_'.$i.'_margin')->get_css_data(),
+			$module->get_setting('border')->get_css_data()
 		)
 	);
 
@@ -35,23 +35,23 @@
 	echo $_s->build_css(
 		$level[$i].' > li.active > a, '.$level[$i].' > li.current-page-ancestor > a',
 		array_merge(
-			$script->get_parent()->get_setting('level_'.$i.'_text_color_active')->get_css_data(),
-			$script->get_parent()->get_setting('level_'.$i.'_text_bg_color_active')->get_css_data('background-color'),
-			$script->get_parent()->get_setting('level_'.$i.'_margin')->get_css_data(),
-			$script->get_parent()->get_setting('border')->get_css_data()
+			$module->get_setting('level_'.$i.'_text_color_active')->get_css_data(),
+			$module->get_setting('level_'.$i.'_text_bg_color_active')->get_css_data('background-color'),
+			$module->get_setting('level_'.$i.'_margin')->get_css_data(),
+			$module->get_setting('border')->get_css_data()
 		)
 	);
 
 	// Text Decoration
 	$properties			= array();
 
-	$value				= $script->get_parent()->get_setting('level_'.$i.'_text_deco')->get_data();
+	$value				= $module->get_setting('level_'.$i.'_text_deco')->get_data();
 	if($value){
 		$imploded		= false;
 		foreach($value as $breakpoint => $val) {
 			if($val != 'none'){
 				$imploded['width'][$breakpoint] = '100%';
-				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$script->get_parent()->get_setting('level_'.$i.'_text_color')->get_data()[$breakpoint].')';
+				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$module->get_setting('level_'.$i.'_text_color')->get_data()[$breakpoint].')';
 
 			}
 		}
@@ -71,13 +71,13 @@
 	// @todo doubled code
 	$properties			= array();
 
-	$value				= $script->get_parent()->get_setting('level_'.$i.'_text_deco_hover')->get_data();
+	$value				= $module->get_setting('level_'.$i.'_text_deco_hover')->get_data();
 	if($value){
 		$imploded		= false;
 		foreach($value as $breakpoint => $val) {
 			if($val != 'none'){
 				$imploded['width'][$breakpoint] = '100%';
-				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$script->get_parent()->get_setting('level_'.$i.'_text_color_hover')->get_data()[$breakpoint].')';
+				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$module->get_setting('level_'.$i.'_text_color_hover')->get_data()[$breakpoint].')';
 				$imploded['transition'][$breakpoint] = 'width .25s ease-in-out';
 			}
 		}
@@ -98,13 +98,13 @@
 	// @todo doubled code
 	$properties			= array();
 
-	$value				= $script->get_parent()->get_setting('level_'.$i.'_text_deco_active')->get_data();
+	$value				= $module->get_setting('level_'.$i.'_text_deco_active')->get_data();
 	if($value){
 		$imploded		= false;
 		foreach($value as $breakpoint => $val) {
 			if($val != 'none'){
 				$imploded['width'][$breakpoint] = '100%';
-				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$script->get_parent()->get_setting('level_'.$i.'_text_color_active')->get_data()[$breakpoint].')';
+				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$module->get_setting('level_'.$i.'_text_color_active')->get_data()[$breakpoint].')';
 				$imploded['transition'][$breakpoint] = 'width .25s ease-in-out';
 			}
 		}

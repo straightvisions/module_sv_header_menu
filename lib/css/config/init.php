@@ -1,8 +1,8 @@
 <?php
-	require( $script->get_parent()->get_path( 'lib/css/config/general.php' ) );
+	require( $module->get_path( 'lib/css/config/general.php' ) );
 
-	require_once($script->get_parent()->get_path('lib/css/config/toggle.php'));
-	require_once($script->get_parent()->get_path('lib/css/config/general.php'));
+	require_once($module->get_path('lib/css/config/toggle.php'));
+	require_once($module->get_path('lib/css/config/general.php'));
 
 
 	$level = array(
@@ -12,6 +12,6 @@
 	);
 	$i = 1;
 	while ($i <= 3) {
-		require($script->get_parent()->get_path('lib/css/config/items.php'));
+		require($module->get_path('lib/css/config/items.php'));
 		$i++;
 	}
