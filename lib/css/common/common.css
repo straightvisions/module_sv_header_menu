@@ -1,7 +1,3 @@
-body {
-	overflow-x: hidden;
-}
-
 body.sv100_sv_header_open {
 	/*overflow-y: hidden;*/ /*@todo make a setting */
 }

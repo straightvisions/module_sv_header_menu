@@ -407,7 +407,7 @@
 					if($script->get_ID() == 'toggle_style_slide' && $this->get_setting( 'toggle_menu_style' )->get_data() != 'slide'){
 						continue;
 					}
-					$script->set_is_enqueued();
+					$script->set_inline(true)->set_is_enqueued();
 				}
 			}
 
