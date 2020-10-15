@@ -33,7 +33,7 @@
 
 	// Active
 	echo $_s->build_css(
-		$level[$i].' > li.active > a, '.$level[$i].' > li.current-page-ancestor > a',
+		$level[$i].' > li.open > a, '.$level[$i].' > li.active > a, '.$level[$i].' > li.current-page-ancestor > a',
 		array_merge(
 			$module->get_setting('level_'.$i.'_text_color_active')->get_css_data(),
 			$module->get_setting('level_'.$i.'_text_bg_color_active')->get_css_data('background-color'),
