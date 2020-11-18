@@ -5,12 +5,14 @@
 	z-index: 100000;
 }
 /* MOBILE NAV: sidebar */
-.sv100_sv_header_open .sv100_sv_header_sidebar {
+.sv100_sv_header_open .sv100_sv_header .sv100_sv_header_bar > .sv100_sv_header_sidebar {
 	position: fixed;
 	z-index: 10000;
 	top: 10px;
 	right: -340px;
 	width: 340px;
+	opacity:1;
+	height:auto;
 }
 
 /* MOBILE NAV: animation */
