@@ -50,7 +50,7 @@
 			$this->get_setting( 'text_align' )
 				->set_title( __( 'Text Align', 'sv100' ) )
 				->set_options( array(
-					''				=> __('wählen...','sv100'),
+					''				=> __('choose...','sv100'),
 					'flex-start'				=> __('left','sv100'),
 					'center'					=> __('center','sv100'),
 					'flex-end'					=> __('right','sv100')
