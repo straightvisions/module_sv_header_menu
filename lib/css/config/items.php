@@ -9,7 +9,7 @@
 			$module->get_setting('level_'.$i.'_text_bg_color')->get_css_data('background-color'),
 			$module->get_setting('level_'.$i.'_padding')->get_css_data('padding'),
 			$module->get_setting('level_'.$i.'_margin')->get_css_data(),
-			$module->get_setting('border')->get_css_data()
+			$module->get_setting('level_'.$i.'_border')->get_css_data()
 		)
 	);
 
@@ -25,9 +25,7 @@
 		$level[$i].' > li:hover > a, '.$level[$i].' > li:focus > a',
 		array_merge(
 			$module->get_setting('level_'.$i.'_text_color_hover')->get_css_data(),
-			$module->get_setting('level_'.$i.'_text_bg_color_hover')->get_css_data('background-color'),
-			$module->get_setting('level_'.$i.'_margin')->get_css_data(),
-			$module->get_setting('border')->get_css_data()
+			$module->get_setting('level_'.$i.'_text_bg_color_hover')->get_css_data('background-color')
 		)
 	);
 
@@ -36,9 +34,7 @@
 		$level[$i].' > li.open > a, '.$level[$i].' > li.active > a, '.$level[$i].' > li.current-page-ancestor > a',
 		array_merge(
 			$module->get_setting('level_'.$i.'_text_color_active')->get_css_data(),
-			$module->get_setting('level_'.$i.'_text_bg_color_active')->get_css_data('background-color'),
-			$module->get_setting('level_'.$i.'_margin')->get_css_data(),
-			$module->get_setting('border')->get_css_data()
+			$module->get_setting('level_'.$i.'_text_bg_color_active')->get_css_data('background-color')
 		)
 	);
 

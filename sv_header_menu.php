@@ -135,6 +135,7 @@
 			$this->get_setting( 'border' )
 				->set_title( __( 'Border', 'sv100' ) )
 				->set_description( __( 'Border', 'sv100' ) )
+				->set_is_responsive(true)
 				->load_type( 'border' );
 
 			$this->load_settings_toggle()->load_settings_items();
@@ -336,6 +337,7 @@
 				$this->get_setting( 'level_'.$i.'_border' )
 					->set_title( __( 'Border', 'sv100' ) )
 					->set_description( __( 'Border', 'sv100' ) )
+					->set_is_responsive(true)
 					->load_type( 'border' );
 
 				// Item - Background
