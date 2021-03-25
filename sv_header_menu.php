@@ -205,15 +205,15 @@
 				->load_type( 'color' );
 			
 			$this->get_setting('toggle_margin')
-			     ->set_title(__('Margin', 'sv100'))
-			     ->set_is_responsive(true)
-			     ->set_default_value(array(
-				     'top' => '10px',
-				     'right' => '0',
-				     'bottom' => '10px',
-				     'left' => '0',
-			     ))
-			     ->load_type('margin');
+				 ->set_title(__('Margin', 'sv100'))
+				 ->set_is_responsive(true)
+				 ->set_default_value(array(
+					 'top' => '10px',
+					 'right' => '0',
+					 'bottom' => '10px',
+					 'left' => '0',
+				 ))
+				 ->load_type('margin');
 
 			return $this;
 		}
@@ -415,7 +415,7 @@
 
 			ob_start();
 			require_once ($this->get_path('lib/tpl/frontend/default.php' ));
-			$output							        = ob_get_clean();
+			$output									= ob_get_clean();
 
 			return $output;
 		}
