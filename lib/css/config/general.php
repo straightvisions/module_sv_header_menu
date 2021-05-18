@@ -22,3 +22,10 @@
 			$module->get_setting('text_align')->get_css_data('align-items')
 		)
 	);
+
+	echo $_s->build_css(
+		'.sv100_sv_navigation_sv_header_menu_primary > .menu a',
+		array_merge(
+			$module->get_setting('text_align')->get_css_data('justify-content')
+		)
+	);
