@@ -2,7 +2,7 @@
 
 /* MOBILE NAV */
 .sv100_sv_header_open .sv100_sv_header_wrapper{
-	z-index: 100000;
+	z-index: 10000;
 }
 /* MOBILE NAV: sidebar */
 .sv100_sv_header_open .sv100_sv_header .sv100_sv_header_bar > .sv100_sv_header_sidebar {
