@@ -2,6 +2,9 @@
 	position: relative;
 	white-space: nowrap;
 }
+.sv100_sv_navigation_sv_header_menu_primary .menu > li:not(:hover){
+	overflow:hidden;
+}
 
 .sv100_sv_navigation_sv_header_menu_primary .menu > li > a > .item-title::before {
 	content: '';
