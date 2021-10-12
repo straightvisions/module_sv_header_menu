@@ -1,6 +1,14 @@
 /* Sub Menus */
-.sv100_sv_navigation_sv_header_menu_primary .sub-menu {
-	display: none;
+.sv100_sv_navigation_sv_header_menu_primary .sub-menu{
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: transform 0.26s ease;
+	height:0;
+	overflow:hidden;
+}
+.sv100_sv_navigation_sv_header_menu_primary .sub-menu.show_submenu{
+	transform: scaleY(1);
+	height:auto;
 }
 
 /* Sub Menu - Depth 1 */

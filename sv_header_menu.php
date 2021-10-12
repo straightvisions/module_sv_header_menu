@@ -314,8 +314,7 @@
 			// Register Scripts
 			$this->get_script( 'navigation_js' )
 				->set_path( 'lib/js/frontend/init.js' )
-				->set_type( 'js' )
-				->set_deps( array(  'jquery' ) );
+				->set_type( 'js' );
 
 			return $this;
 		}
