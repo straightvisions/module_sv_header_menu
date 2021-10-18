@@ -8,7 +8,9 @@
 	overflow:hidden;
 	opacity:0;
 }
-.sv100_sv_navigation_sv_header_menu_primary .sub-menu.show_submenu{
+.sv100_sv_navigation_sv_header_menu_primary .menu-item-has-children.open > .sub-menu,
+.sv100_sv_navigation_sv_header_menu_primary .menu-item-has-children:hover > .sub-menu
+{
 	/*transform: scaleY(1);*/
 	height:auto;
 	opacity:1;
