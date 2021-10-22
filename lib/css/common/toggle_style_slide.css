@@ -64,6 +64,7 @@
 	position: fixed;
 	top: 15px;
 	right: -40px;
+	z-index: 10001;
 }
 
 .sv100_sv_navigation_sv_header_menu_primary .menu a{
