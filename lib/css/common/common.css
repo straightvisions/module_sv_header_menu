@@ -21,7 +21,7 @@ body.sv100_sv_header_open {
 }
 
 .sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary{
-	height: 100vh;
+	height: auto;
 	top:100%;
 	width:100%;
 	z-index: 1024;
