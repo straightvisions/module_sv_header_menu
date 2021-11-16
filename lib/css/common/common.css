@@ -40,7 +40,6 @@ body.sv100_sv_header_open {
 .sv100_sv_navigation_sv_header_menu_primary .menu a {
 	display: flex;
 	white-space: nowrap;
-	text-decoration:none;
 }
 
 .sv100_sv_navigation_sv_header_menu_primary ul li{
