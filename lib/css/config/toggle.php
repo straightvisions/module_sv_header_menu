@@ -99,9 +99,9 @@
 		// maybe show submenu on hover, when toggle is inactive
 		$properties						= array();
 
-		$properties['transform']	= $_s->prepare_css_property_responsive(array_map(function ($val) { return $val ? '' : 'scaleY(1)'; }, $toggle_active),'','');
-		$properties['height']	= $_s->prepare_css_property_responsive(array_map(function ($val) { return $val ? '' : 'auto'; }, $toggle_active),'','');
-		$properties['opacity']	= $_s->prepare_css_property_responsive(array_map(function ($val) { return $val ? '' : '1'; }, $toggle_active),'','');
+		$properties['transform']	= $_s->prepare_css_property_responsive(array_map(function ($val) { return $val ? 'none' : 'scaleY(1)'; }, $toggle_active),'','');
+		$properties['height']	= $_s->prepare_css_property_responsive(array_map(function ($val) { return $val ? '0' : 'auto'; }, $toggle_active),'','');
+		$properties['opacity']	= $_s->prepare_css_property_responsive(array_map(function ($val) { return $val ? '0' : '1'; }, $toggle_active),'','');
 
 		echo $_s->build_css(
 			'.sv100_sv_navigation_sv_header_menu_primary .menu-item-has-children:hover > .sub-menu',
