@@ -312,7 +312,7 @@
 				->set_path( 'lib/css/common/toggle_style_slide_right_to_left.css' )
 				->set_inline( true );
 
-			$this->get_script( 'toggle_style_slide_right_to_left' )
+			$this->get_script( 'toggle_style_slide_left_to_right' )
 				->set_path( 'lib/css/common/toggle_style_slide_left_to_right.css' )
 				->set_inline( true );
 
@@ -352,11 +352,11 @@
 
 				foreach($this->get_scripts() as $script){
 					// load slide right to left only when active
-					if($script->get_ID() == 'toggle_style_slide' && $this->get_setting( 'toggle_menu_style' )->get_data() != 'slide'){
+					if($script->get_ID() == 'toggle_style_slide_right_to_left' && $this->get_setting( 'toggle_menu_style' )->get_data() != 'slide'){
 						continue;
 					}
 					// load slide left to right only when active
-					if($script->get_ID() == 'toggle_style_slide' && $this->get_setting( 'toggle_menu_style' )->get_data() != 'slide_left_to_right'){
+					if($script->get_ID() == 'toggle_style_slide_left_to_right' && $this->get_setting( 'toggle_menu_style' )->get_data() != 'slide_left_to_right'){
 						continue;
 					}
 					// load styles
