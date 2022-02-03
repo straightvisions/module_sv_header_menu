@@ -107,8 +107,9 @@
 				->set_title( __( 'Menu Style', 'sv100' ) )
 				->set_description( __( 'Change Style of the Menu', 'sv100' ) )
 				->set_options( array(
-					'hover'		=> 'Hover over Content',
-					'slide'		=> 'Slide and move Content'
+					'hover'						=> 'Hover over Content',
+					'slide'						=> 'Slide and move Content from right to left',
+					'slide_left_to_right'		=> 'Slide and move Content from left to right'
 				) )
 				->set_default_value( 'hover' )
 				->load_type( 'select' );
@@ -307,8 +308,12 @@
 				->set_path( 'lib/css/common/items_level_3.css' )
 				->set_inline( true );
 
-			$this->get_script( 'toggle_style_slide' )
-				->set_path( 'lib/css/common/toggle_style_slide.css' )
+			$this->get_script( 'toggle_style_slide_right_to_left' )
+				->set_path( 'lib/css/common/toggle_style_slide_right_to_left.css' )
+				->set_inline( true );
+
+			$this->get_script( 'toggle_style_slide_right_to_left' )
+				->set_path( 'lib/css/common/toggle_style_slide_left_to_right.css' )
 				->set_inline( true );
 
 			// Register Scripts
@@ -346,9 +351,15 @@
 				$this->load_settings()->register_scripts();
 
 				foreach($this->get_scripts() as $script){
+					// load slide right to left only when active
 					if($script->get_ID() == 'toggle_style_slide' && $this->get_setting( 'toggle_menu_style' )->get_data() != 'slide'){
 						continue;
 					}
+					// load slide left to right only when active
+					if($script->get_ID() == 'toggle_style_slide' && $this->get_setting( 'toggle_menu_style' )->get_data() != 'slide_left_to_right'){
+						continue;
+					}
+					// load styles
 					$script->set_is_enqueued();
 				}
 			}

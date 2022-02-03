@@ -1,0 +1,72 @@
+/* @todo: make menu width a setting */
+
+/* MOBILE NAV */
+.sv100_sv_header_open .sv100_sv_header_wrapper{
+	z-index: 10000;
+}
+/* MOBILE NAV: sidebar */
+.sv100_sv_header_open .sv100_sv_header .sv100_sv_header_bar > .sv100_sv_header_sidebar {
+	position: fixed;
+	z-index: 10000;
+	top: 10px;
+	left: -340px;
+	width: 340px;
+	opacity:1;
+	height:auto;
+}
+
+/* MOBILE NAV: animation */
+.sv100_sv_content,
+.sv100_sv_branding,
+.sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle,
+.sv100_sv_header_sidebar {
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s, opacity 0.3s ease-out;
+	-webkit-transform-origin: 50% 1%;
+	transform-origin: 50% 1%;
+	-webkit-transform-style: flat;
+	transform-style: flat;
+}
+
+.sv100_sv_header_open .sv100_sv_content,
+.sv100_sv_header_open .sv100_sv_branding,
+.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle,
+.sv100_sv_header_open .sv100_sv_header_sidebar {
+	-webkit-transform: translate3d(340px, 0, 0);
+	transform: translate3d(340px, 0, 0);
+}
+
+.sv100_sv_header_open .sv100_sv_content,
+.sv100_sv_header_open .sv100_sv_branding {
+	opacity: 0.3;
+}
+
+/* MOBILE NAV: menu */
+.sv100_sv_header_open .sv100_sv_navigation_container .sv100_sv_navigation_sv_header_menu_primary {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform 0.5s;
+	transition: transform 0.5s;
+	-webkit-transform-origin: 50% 1%;
+	transform-origin: 50% 1%;
+	-webkit-transform-style: flat;
+	transform-style: flat;
+	visibility: visible !important;
+	position: fixed;
+	top: 0;
+	right: 100%;
+	height: 100%;
+	width: 340px;
+	overflow-y: auto;
+}
+
+.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle{
+	position: fixed;
+	top: 15px;
+	left: -320px;
+	z-index: 10001;
+}
+
+.sv100_sv_navigation_sv_header_menu_primary .menu a{
+	white-space: initial;
+}
