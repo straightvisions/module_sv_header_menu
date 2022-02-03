@@ -19,5 +19,4 @@
 	-webkit-mask-size: 100%;
 	-webkit-mask-position: center;
 	-webkit-mask-repeat: no-repeat;
-	transition: -webkit-mask-image .5s ease-in-out;
 }
