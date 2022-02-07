@@ -9,9 +9,9 @@
 }
 .sv100_sv_navigation_sv_header_menu_primary .menu-item-has-children.open > .sub-menu
 {
-	transform: scaleY(1);
-	height:auto;
-	opacity:1;
+	transform: scaleY(1) !important;
+	height:auto !important;
+	opacity:1 !important;
 }
 
 /* Sub Menu - Depth 1 */
