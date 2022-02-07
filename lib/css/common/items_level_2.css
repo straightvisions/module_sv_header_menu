@@ -5,7 +5,6 @@
 	transition: transform 0.26s ease;
 
 	height:0;
-	overflow:hidden;
 	opacity:0;
 }
 .sv100_sv_navigation_sv_header_menu_primary .menu-item-has-children.open > .sub-menu
