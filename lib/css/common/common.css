@@ -60,7 +60,7 @@ body.sv100_sv_header_open {
 /* Mobile Menu */
 .sv100_sv_header.open .sv100_sv_navigation_sv_header_menu_primary{
 	padding-top:100px;
-	transition:margin-top 0.25s ease;
+	transition:all 0.25s ease;
 }
 .admin-bar .sv100_sv_header_wrapper:not(.scrolled) .sv100_sv_header.open .sv100_sv_navigation_sv_header_menu_primary{
 	margin-top:32px;
