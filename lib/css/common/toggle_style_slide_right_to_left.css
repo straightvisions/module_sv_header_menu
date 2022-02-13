@@ -58,13 +58,7 @@
 	height: 100%;
 	width: 340px;
 	overflow-y: auto;
-}
-
-.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle{
-	position: fixed;
-	top: 15px;
-	right: -40px;
-	z-index: 10001;
+	padding-top:100px;
 }
 
 .sv100_sv_navigation_sv_header_menu_primary .menu a{
