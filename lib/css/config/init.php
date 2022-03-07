@@ -1,6 +1,4 @@
 <?php
-	require( $module->get_path( 'lib/css/config/general.php' ) );
-
 	require_once($module->get_path('lib/css/config/toggle.php'));
 	require_once($module->get_path('lib/css/config/general.php'));
 
