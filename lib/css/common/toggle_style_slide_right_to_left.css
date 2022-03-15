@@ -36,6 +36,11 @@
 }
 .sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle{
 	margin-left: auto !important;
+}
+.admin-bar.sv100_sv_header_open .sv100_sv_header_wrapper:not(.scrolled) .sv100_sv_navigation_mobile_menu_toggle{
+	margin-top:0 !important;
+}
+.admin-bar.sv100_sv_header_open .sv100_sv_header_wrapper.scrolled .sv100_sv_navigation_mobile_menu_toggle{
 	margin-top: -80px !important;
 }
 

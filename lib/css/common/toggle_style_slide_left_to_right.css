@@ -30,10 +30,18 @@
 
 .sv100_sv_header_open .sv100_sv_content,
 .sv100_sv_header_open .sv100_sv_branding,
-.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle,
 .sv100_sv_header_open .sv100_sv_header_sidebar {
 	-webkit-transform: translate3d(340px, 0, 0);
 	transform: translate3d(340px, 0, 0);
+}
+.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle{
+	margin-right: auto !important;
+}
+.admin-bar.sv100_sv_header_open .sv100_sv_header_wrapper:not(.scrolled) .sv100_sv_navigation_mobile_menu_toggle{
+	margin-top:0 !important;
+}
+.admin-bar.sv100_sv_header_open .sv100_sv_header_wrapper.scrolled .sv100_sv_navigation_mobile_menu_toggle{
+	margin-top: -50px !important;
 }
 
 .sv100_sv_header_open .sv100_sv_content,
