@@ -309,12 +309,10 @@
 				->set_inline( true );
 
 			$this->get_script( 'toggle_style_slide_right_to_left' )
-				->set_path( 'lib/css/common/toggle_style_slide_right_to_left.css' )
-				->set_inline( true );
+				->set_path( 'lib/css/common/toggle_style_slide_right_to_left.css' );
 
 			$this->get_script( 'toggle_style_slide_left_to_right' )
-				->set_path( 'lib/css/common/toggle_style_slide_left_to_right.css' )
-				->set_inline( true );
+				->set_path( 'lib/css/common/toggle_style_slide_left_to_right.css' );
 
 			// Register Scripts
 			$this->get_script( 'navigation_js' )
