@@ -30,10 +30,13 @@
 
 .sv100_sv_header_open .sv100_sv_content,
 .sv100_sv_header_open .sv100_sv_branding,
-.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle,
 .sv100_sv_header_open .sv100_sv_header_sidebar {
 	-webkit-transform: translate3d(-340px, 0, 0);
 	transform: translate3d(-340px, 0, 0);
+}
+.sv100_sv_header_open .sv100_sv_navigation_sv_header_menu_primary_mobile_menu_toggle{
+	margin-left: auto !important;
+	margin-top: -80px !important;
 }
 
 .sv100_sv_header_open .sv100_sv_content,
