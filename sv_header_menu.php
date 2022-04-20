@@ -14,6 +14,10 @@
 				->set_section_icon('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z"/></svg>')
 				->get_root()
 				->add_section( $this );
+
+			add_action('init', function(){
+				$this->load_settings()->add_metaboxes();
+			});
 		}
 
 		protected function load_settings(): sv_header_menu {
@@ -367,5 +371,20 @@
 			$output									= ob_get_clean();
 
 			return $output;
+		}
+		private function add_metaboxes(): sv_header_menu{
+			$this->metaboxes			= $this->get_root()->get_module('sv_metabox');
+
+			$this->metaboxes->get_setting( $this->get_prefix('active') )
+				->set_title( __('Show Primary Menu', 'sv100') )
+				->set_description( __('Override Default Settings', 'sv100') )
+				->load_type( 'select' )
+				->set_options(array(
+					''			=> __('Inherit', 'sv100'),
+					'0'			=> __('Hidden', 'sv100'),
+					'1'			=> __('Show', 'sv100'),
+				));
+
+			return $this;
 		}
 	}
