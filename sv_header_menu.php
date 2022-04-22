@@ -6,7 +6,7 @@
 			$this->set_module_title( __( 'SV Header Menu', 'sv100' ) )
 				->set_module_desc( __( 'Menu Header Settings', 'sv100' ) )
 				->register_navs()
-				->set_css_cache_active()
+				//->set_css_cache_active() // CSS cache deactivated due to use of metaboxes in this module
 				->set_section_title( $this->get_module_title() )
 				->set_section_desc( $this->get_module_desc() )
 				->set_section_template_path()
@@ -295,6 +295,14 @@
 		protected function register_scripts(): sv_header_menu {
 			parent::register_scripts();
 
+			$this->get_script('config')
+				->set_path('lib/css/config/init.php')
+				->set_inline(true);
+
+			$this->get_script('common')
+				->set_path('lib/css/common/common.css')
+				->set_inline(true);
+
 			// Register Styles
 			$this->get_script( 'toggle' )
 				->set_path( 'lib/css/common/toggle.css' )
@@ -385,6 +393,22 @@
 					'1'			=> __('Show', 'sv100'),
 				));
 
+			$this->metaboxes->get_setting( $this->get_prefix('header_menu_top_level_color') )
+				->set_title( __('Header Menu Top Level Color', 'sv100') )
+				->load_type( 'color' );
+
 			return $this;
+		}
+		public function get_header_menu_color(string $field): string{
+			global $post;
+
+			$data		= '';
+
+			if ( $this->get_module('sv_header_content')->has_color_override() ) {
+				$data	= $this->metaboxes->get_data( $post->ID, $this->get_prefix($field) );
+				$data	= $this->get_setting( $field )->get_rgb( $data );
+			}
+
+			return $data;
 		}
 	}
