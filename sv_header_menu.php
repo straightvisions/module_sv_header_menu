@@ -397,6 +397,10 @@
 				->set_title( __('Header Menu Top Level Color', 'sv100') )
 				->load_type( 'color' );
 
+			$this->metaboxes->get_setting( $this->get_prefix('header_menu_top_level_background_color') )
+				->set_title( __('Header Menu Top Level Background Color', 'sv100') )
+				->load_type( 'color' );
+
 			return $this;
 		}
 		public function get_header_menu_color(string $field): string{

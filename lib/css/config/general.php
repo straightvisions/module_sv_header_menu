@@ -24,16 +24,30 @@
 	);
 
 	// post color override
+	$properties		= array();
 	$header_menu_top_level_color 	= $module->get_header_menu_color('header_menu_top_level_color');
-	if($header_menu_top_level_color){
-		$properties['color']		= $_s->prepare_css_property($header_menu_top_level_color,'rgba(',') !important');
+	if($header_menu_top_level_color) {
+		$properties['color'] = $_s->prepare_css_property($header_menu_top_level_color, 'rgba(', ') !important');
+	}
+	if(count($properties) > 0){
+		echo $_s->build_css(
+			'body:not(.sv100_sv_header_open) .sv100_sv_navigation_sv_header_menu_primary ul > li > a',
+			array_merge(
+				$properties
+			)
+		);
+	}
 
-		if(strlen($header_menu_top_level_color) > 0){
-			echo $_s->build_css(
-				'.sv100_sv_header:not(.open) .sv100_sv_navigation_sv_header_menu_primary ul > li > a',
-				array_merge(
-					$properties
-				)
-			);
-		}
+	$properties		= array();
+	$header_menu_top_level_background_color 	= $module->get_header_menu_color('header_menu_top_level_background_color');
+	if($header_menu_top_level_background_color) {
+		$properties['background-color'] = $_s->prepare_css_property($header_menu_top_level_background_color, 'rgba(', ') !important');
+	}
+	if(count($properties) > 0){
+		echo $_s->build_css(
+			'body:not(.sv100_sv_header_open) .sv100_sv_header_wrapper',
+			array_merge(
+				$properties
+			)
+		);
 	}
