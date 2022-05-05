@@ -75,18 +75,39 @@
 			$properties
 		);
 
+
+		$properties						= array();
+		$toggle_closed = array_map(function ($val) {
+			if(strlen($val) > 0){
+				return 'url(\'data:image/svg+xml;utf8;base64,'.base64_encode($val).'\')';
+			}
+			return '';
+		}, $module->get_setting('toggle_closed')->get_data());
+
+		$properties['-webkit-mask-image']	= $toggle_closed;
+
 		echo $_s->build_css(
 			'.sv100_sv_navigation_mobile_menu_toggle::before',
 			array_merge(
-				$module->get_setting('toggle_closed')->get_css_data('-webkit-mask-image','url(\'data:image/svg+xml;utf8,','\')'),
+				$properties,
 				$module->get_setting('toggle_closed_color')->get_css_data('background-color')
 			)
 		);
 
+		$properties						= array();
+		$toggle_open = array_map(function ($val) {
+			if(strlen($val) > 0){
+				return 'url(\'data:image/svg+xml;utf8;base64,'.base64_encode($val).'\')';
+			}
+			return '';
+		}, $module->get_setting('toggle_open')->get_data());
+
+		$properties['-webkit-mask-image']	= $toggle_open;
+
 		echo $_s->build_css(
 			'.sv100_sv_header button.sv100_sv_navigation_mobile_menu_toggle.open::before',
 			array_merge(
-				$module->get_setting('toggle_open')->get_css_data('-webkit-mask-image','url(\'data:image/svg+xml;utf8,','\')'),
+				$properties,
 				$module->get_setting('toggle_open_color')->get_css_data('background-color')
 			)
 		);
