@@ -11,12 +11,10 @@ body.sv100_sv_header_open {
 .sv100_sv_navigation_sv_header_menu_primary {
 	height: 100%;
 	width:  auto;
-	border-top: 0;
 	z-index: 1;
-	border-top: 0;
 	align-items: stretch;
 	overflow:visible;
-	transition: visibility 0s ease-in-out 0s, left .5s ease-in-out;
+	transition: left .5s ease-in-out;
 	user-select: none;
 }
 

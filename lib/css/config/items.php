@@ -75,6 +75,10 @@
 				$imploded['width'][$breakpoint] = '100%';
 				$imploded['border-bottom'][$breakpoint] = '1px solid rgba('.$module->get_setting('level_'.$i.'_text_color_hover')->get_data()[$breakpoint].')';
 				$imploded['transition'][$breakpoint] = 'width .25s ease-in-out';
+			}else{
+				$imploded['width'][$breakpoint] = 'auto';
+				$imploded['border-bottom'][$breakpoint] = 'none';
+				$imploded['transition'][$breakpoint] = 'none';
 			}
 		}
 
