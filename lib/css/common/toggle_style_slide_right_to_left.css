@@ -40,10 +40,10 @@
 	top: 20px;
 	position:fixed;
 }
-.admin-bar.sv100_sv_header_open .sv100_sv_header_wrapper:not(.scrolled) .sv100_sv_navigation_mobile_menu_toggle{
+.admin-bar.sv100_sv_header_open:not(.scrolled) .sv100_sv_header_wrapper .sv100_sv_navigation_mobile_menu_toggle{
 	top:56px;
 }
-.admin-bar.sv100_sv_header_open .sv100_sv_header_wrapper.scrolled .sv100_sv_navigation_mobile_menu_toggle{
+.admin-bar.sv100_sv_header_open.scrolled .sv100_sv_header_wrapper .sv100_sv_navigation_mobile_menu_toggle{
 	top: 20px;
 }
 
