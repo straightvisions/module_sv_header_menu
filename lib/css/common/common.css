@@ -22,6 +22,7 @@ body.sv100_sv_header_open {
 	height: auto;
 	top:100%;
 	width:100%;
+	min-width:100%;
 	z-index: 1024;
 	overflow: hidden;
 }
