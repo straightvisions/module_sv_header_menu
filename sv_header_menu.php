@@ -313,12 +313,10 @@
 				->set_inline( true );
 
 			$this->get_script( 'items_level_2' )
-				->set_path( 'lib/css/common/items_level_2.css' )
-				->set_inline( true );
+				->set_path( 'lib/css/common/items_level_2.css' );
 
 			$this->get_script( 'items_level_3' )
-				->set_path( 'lib/css/common/items_level_3.css' )
-				->set_inline( true );
+				->set_path( 'lib/css/common/items_level_3.css' );
 
 			$this->get_script( 'toggle_style_slide_right_to_left' )
 				->set_path( 'lib/css/common/toggle_style_slide_right_to_left.css' );
